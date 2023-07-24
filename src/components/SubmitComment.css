@@ -1,0 +1,16 @@
+.quill .ql-editor {
+    min-height: 100px; /* adjust as needed */
+}
+
+.quill {
+    padding-top:40px;
+}
+
+input[type="submit"] {
+    margin-top: 5px; /* Add space before submit button */
+    margin-bottom: 20px;
+    width: 120px; /* Set the width of the submit button */
+
+}
+
+

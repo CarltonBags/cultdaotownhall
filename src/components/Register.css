@@ -1,0 +1,37 @@
+.register-container{
+    width:50%;
+    margin: auto;
+    text-align: center;
+    padding-top:50px;
+    
+}
+
+.register-header {
+    font-family: Benguiat;
+    font-size: 3rem;
+    padding-bottom: 30px;
+}
+
+.r-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40%;
+    margin:auto;
+    margin-bottom: 0px;
+    border: 3px solid black;
+    border-radius:5px;
+}
+
+.register-button-container {
+    margin-top:20px;
+    margin-bottom: 25px;
+}
+
+.r-sub-container {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding:25px;
+
+}

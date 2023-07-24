@@ -1,0 +1,33 @@
+.p-card-container {
+    display: flex; /* Add this line */
+    flex-direction: column; /* Add this line */
+    text-align: center;
+    border: 1px solid black; /* Add solid border */
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin: 0 10px; /* Add margin for spacing */
+    padding: 10px; /* Add padding for content spacing */
+    box-sizing: border-box; /* Include border and padding in width and height */
+    overflow: hidden;
+}
+
+.card-container:hover {
+    background-color: #ffe6e6;
+}
+
+.proposal-id {
+    font-family: Special Elite;
+    background-color: black;
+    color: white;
+    border-radius:5px;
+}
+
+.proposal-title{
+    font-family: Special Elite;
+    font-size: 1.2rem;
+}
+
+.proposal-submitter-container{
+    margin-top: auto; /* Add this line to push the submitter to the bottom */
+}

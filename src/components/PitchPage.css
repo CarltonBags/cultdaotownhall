@@ -1,0 +1,73 @@
+.container {
+    text-align: center;
+}
+
+.sub-container {
+    border: 3px solid black;
+    width:80%;
+    margin: auto;
+    margin-bottom:50px;
+    margin-top:30px;
+    border-radius:5px;
+}
+
+.headline {
+    font-size: 2rem;
+    font-family: Benguiat;
+    padding-top:10px;
+    margin-bottom:0px;
+    background-color:black;
+    color:white;
+}
+
+.project-description {
+    font-family: Special Elite;
+    text-align:left;
+    width: 90%;
+    margin:auto;
+    padding-top:0px;
+}
+
+.comment {
+    width:60%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.pitch-header{
+    font-size: 1.4rem;
+    font-family: Benguiat;
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+.project-socials {
+    font-family: Special Elite;
+    text-align:center;
+    width: 90%;
+    margin:auto;
+    padding-bottom:10px;
+}
+
+.file-icon{
+    width:5%;
+    margin:auto;
+    margin-bottom:20px;
+    margin-top:20px;
+    color:black;
+}
+
+.vote {
+    font-family:Special Elite;
+    padding:5px;
+}
+
+.down{
+    margin:10px;
+    margin-bottom: 30px;
+}
+
+.vote-header {
+    font-family: Special Elite;
+}

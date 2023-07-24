@@ -1,0 +1,56 @@
+.proposal-container {
+    margin: auto;
+    width: 50%;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.proposal-headline {
+    text-align:center;
+    font-family: Benguiat;
+    margin-bottom: 40px; /* Add space after headline */
+}
+
+.label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.label-container input[type="text"] {
+    width: 750px;
+    margin-top: 10px;
+    margin-bottom: 40px; /* Add space after input fields */
+}
+
+.label-container .quill {
+    width: 750px;
+    margin-top: 0px; /* adjust as needed */
+    margin-bottom: 20px; /* adjust as needed */
+}
+
+.headline {
+    width: auto;
+}
+
+.quill .ql-editor {
+    min-height: 400px; /* adjust as needed */
+}
+
+input[type="submit"] {
+    margin-top: 5px; /* Add space before submit button */
+}
+
+.sub-head{
+    font-family: Benguiat;
+}
+
+.quill-wrapper {
+    width: 750px;
+    margin-top: 0px; /* adjust as needed */
+    margin-bottom: 20px; /* adjust as needed */
+}

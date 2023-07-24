@@ -1,0 +1,52 @@
+.container {
+    text-align: center;
+}
+
+.sub-container {
+    border: 3px solid black;
+    width:80%;
+    margin: auto;
+    margin-bottom:50px;
+    margin-top:30px;
+    border-radius:5px;
+}
+
+.headline {
+    font-size: 2rem;
+    font-family: Benguiat;
+    padding-top:10px;
+    margin-bottom:0px;
+    background-color:black;
+    color:white;
+}
+
+.sub-headline {
+    font-size: 2rem;
+    font-family: Benguiat;
+    padding-top:10px;
+    padding-bottom: 10px;
+    background-color:black;
+    color:white;
+    margin-top:0px;
+}
+
+.description {
+    font-family: Special Elite;
+    text-align:left;
+    width: 90%;
+    margin:auto;
+    padding-top:50px;
+}
+
+.comment {
+    width:60%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.discussion-headline {
+    font-size: 2rem;
+    font-family: Benguiat;
+    padding-top:10px;
+}

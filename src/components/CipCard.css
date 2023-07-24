@@ -1,0 +1,31 @@
+.cip-container {
+    height:auto;
+    border: 3px solid black;
+    border-radius: 7px;
+    margin:40px;
+    width:50%;
+}
+
+.cip-header {
+    font-family: Benguiat;
+    text-align:center;
+}
+
+.cip-img {
+    display: block;
+    margin: auto;
+    width: 70%;
+}
+
+.button-container {
+    text-align: center;
+}
+
+
+.cip-sub-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+}
+

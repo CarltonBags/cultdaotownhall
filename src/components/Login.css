@@ -1,0 +1,60 @@
+.main-container{
+    width:50%;
+    margin: auto;
+    text-align: center;
+    padding-top:50px;
+    
+}
+
+.login-header {
+    font-family: Benguiat;
+    font-size: 3rem;
+    padding-bottom: 80px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+    margin:auto;
+    margin-bottom: 0px;
+}
+
+.email {
+    font-family: Benguiat;
+}
+
+.google {
+    font-family: Benguiat;
+    padding-top:25px;
+}
+
+.submit-button {
+    width: 70px;
+    color:white;
+    background-color:black;
+}
+
+.button-container{
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.ggl-btn {
+    width:150px;
+    margin-top:10px
+}
+
+.login-form{
+    border: 3px solid black;
+    border-radius: 5px;
+    padding:30px;
+    width: 60%;
+    margin:auto;
+}
+
+.login-button-style {
+    width: 150px;
+}
+

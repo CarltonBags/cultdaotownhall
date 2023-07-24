@@ -1,0 +1,51 @@
+.cip-container {
+    height:auto;
+    border: 3px solid black;
+    border-radius: 7px;
+    margin:40px;
+}
+
+.cip-header {
+    font-family: Benguiat;
+    text-align:center;
+}
+
+.pit-img {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.enter {
+    display: inline-block;
+    margin: auto;
+    margin-right:2%;
+    min-width: 80px;
+}
+
+.submit{
+    display: inline-block;
+    margin: auto;
+    min-width: 80px;
+}
+
+.enter-btn {
+    width:100%;
+    font-family: Benguiat;
+    min-width: 80px;
+}
+
+.submit-btn {
+    width:100%;
+    font-family: Benguiat;
+    min-width: 80px;
+}
+
+.cip-sub-container {
+    padding:20px;
+}
+

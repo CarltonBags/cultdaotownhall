@@ -1,0 +1,21 @@
+.userdisplay {
+    font-family: Benguiat;
+    margin:auto;
+    margin-right:9px;
+    font-size: 1.2rem;
+}
+
+.login-button {
+    margin-right: 5px;
+    font-family:Benguiat;
+}
+
+.signup-button {
+    margin-right: 5px;
+    font-family:Benguiat;
+}
+
+.logout-button {
+    margin-right: 5px;
+    font-family:Benguiat;
+}

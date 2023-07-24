@@ -1,0 +1,43 @@
+.card-container {
+    
+    display: flex; /* Add this */
+    flex-direction: column; /* Add this */
+    justify-content: space-between; /* Add this */
+    text-align: center;
+    border: 1px solid black; /* Add solid border */
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin: 0 10px; /* Add margin for spacing */
+    padding: 10px; /* Add padding for content spacing */
+    box-sizing: border-box; /* Include border and padding in width and height */
+    overflow:hidden;
+}
+
+  .card-container:hover {
+    background-color: #ffe6e6;
+}
+  
+
+.project-name {
+    font-family: Benguiat;
+    border-radius:5px;
+}
+
+.proposal-logo{
+    width:400px;
+    height:400px;
+}
+
+.project-owner{
+    font-family: Special Elite;
+    font-size: 0.8rem;
+
+}
+
+.votes-container {
+    line-height: 1.2; /* Adjust as needed */
+}
+.card-vote {
+    font-family: Special Elite;
+}

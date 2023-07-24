@@ -1,0 +1,26 @@
+.proposal-list {
+    display:flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: stretch;
+    align-content: center;
+    padding-top:70px;
+    padding-left:100px;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    gap: 20px; /* Add gap between cards */
+
+}
+
+.pl-header{
+    font-family: Benguiat;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bold;
+    padding-top:40px;
+}
+
+.proposal-submitter{
+    font-family: Special Elite;
+    font-size: 0.8rem;
+    bottom:0;
+}
