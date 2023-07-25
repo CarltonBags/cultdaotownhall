@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Comment.css";
 import { getAuth } from "firebase/auth";
 import "./PitchComment.css";
-import { getDocs, addDoc, collection } from "firebase/firestore";
+import { query, doc, setDoc, deleteDoc, getDoc, addDoc, getDocs, collection, where, DocumentSnapshot } from "firebase/firestore";
 import {db} from "./firebaseConfig";
 
 
 
 function PitchComment ({commentData}) {
 
-const auth=getAuth();
+    const auth=getAuth();
 
     const data= commentData;
     const date= new Date (data.time);
@@ -17,7 +17,8 @@ const auth=getAuth();
     const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}, ${date.getHours()}:${formattedMinutes}`;
 
 
-const handleArchive = async (event) => {
+
+    const handleArchive = async (event) => {
         event.preventDefault();
         
         if (!auth.currentUser) {
@@ -27,6 +28,17 @@ const handleArchive = async (event) => {
         const date = new Date();
         const dateString = date.toISOString();
 
+        const commentQuery = collection(db, "files");
+    const commentsSnapshot = await getDocs(commentQuery);
+    const commentExists = commentsSnapshot.docs.some(doc => 
+        doc.data().commentId === data.commentId && doc.data().id === data.id
+    );
+
+    if (commentExists) {
+        // If the comment already exists
+        alert("Comment already exists in the file.");
+        return;
+    }
         await addDoc(collection(db, "files"), {
             id: data.id,
             commentId: data.commentId,
@@ -34,6 +46,8 @@ const handleArchive = async (event) => {
             comment: data.comment,
             user:auth.currentUser.displayName
         });
+        
+        
     }
 
 
