@@ -143,23 +143,26 @@ function SubmitPitch() {
         </div>
         <div className="label-container">
           <label className="sub-head">
-            - Describe your desired conditions for the Investment (What do you need? What will you return?) -
+            - Describe your desired conditions for the Investment -
           </label>
+          <div className="quill-wrapper">
           <ReactQuill
+            className="description"
             type="text"
             name="investment"
             onChange={handleInvestmentChange}
             value={investment}
           />
+          </div>
         </div>
-        <div className="label-container">
+       {/* <div className="label-container">
           <label className="sub-head">- Project Logo -</label>
           <input
             type="file"
             accept="image/*"
             onChange={handleLogoChange}
           />
-        </div>
+  </div>*/}
         <input className="btn btn-dark submit-pitch" type="submit" value="Submit" />
       </form>
     </div>

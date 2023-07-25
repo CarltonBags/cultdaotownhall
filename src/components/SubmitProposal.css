@@ -51,6 +51,6 @@ input[type="submit"] {
 
 .quill-wrapper {
     width: 750px;
-    margin-top: 0px; /* adjust as needed */
+    margin-top: -25px; /* try negative margin to decrease space */
     margin-bottom: 20px; /* adjust as needed */
 }
