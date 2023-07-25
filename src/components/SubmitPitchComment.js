@@ -47,6 +47,7 @@ function SubmitPitchComment ({pitchData}) {
             commentId: highestCommentId +1,
             time: dateString,
             comment: comment,
+            userId: auth.currentUser.uid,
             user:auth.currentUser.displayName
         });
     }

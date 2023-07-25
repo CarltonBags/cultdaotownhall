@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import SubmitProposal from "./components/SubmitProposal";
-import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ProposalList from "./components/ProposalList";
 import ProposalPage from "./components/ProposalPage";
 import Login from "./components/Login";

@@ -37,7 +37,7 @@ function ProposalPage () {
 
         fetchProposalData();
 
-    }, [id]);
+    }, []);
 
     console.log(proposalData)
 
@@ -59,7 +59,7 @@ function ProposalPage () {
 
         fetchCommentData();
 
-    }, [commentData]);
+    }, []);
 
 
     if (!proposalData) {

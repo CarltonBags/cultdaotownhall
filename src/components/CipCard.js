@@ -13,7 +13,7 @@ function CipCard () {
         <div className="cip-container">
             <div className="cip-sub-container">
             <h2 className="cip-header"> Improvement Proposals</h2>
-            <img className="cip-img" src="/brand.png" />
+            <img className="cip-img" src="/brand.png" alt="cip"/>
             <div className="button-container">
                 <div className="enter">
                  <Link to="/proposalList" className="btn btn-dark enter-btn">Explore</Link>

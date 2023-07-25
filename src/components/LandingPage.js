@@ -10,7 +10,7 @@ import IntroCard from "./IntroCard";
 
 
 
-function LandingPage ({handleSubmitOpen, handleEnterOpen}) {
+function LandingPage () {
    
    
     return (
