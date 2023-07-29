@@ -11,7 +11,8 @@ import IntroCard from "./IntroCard";
 
 
 function LandingPage () {
-   
+    console.log("LandingPage is rendering");
+
    
     return (
         <div>

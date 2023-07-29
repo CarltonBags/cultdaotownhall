@@ -8,7 +8,7 @@ import { FaTwitter } from 'react-icons/fa';
 function Footer () {
 
     const twitterURL = "https://twitter.com/wearecultdao"; // replace with your twitter url
-    const websiteURL = "https://www.cultdao.io"; // replace with your website url
+    const websiteURL = "https://cultdao.io"; // replace with your website url
 
     return (
 

@@ -51,7 +51,9 @@
 }
 
 .file-icon{
-    width:5%;
+    width:6%;
+    min-width:60px;
+    align-items: center;
     margin:auto;
     margin-bottom:20px;
     margin-top:20px;

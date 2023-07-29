@@ -1,18 +1,19 @@
 import { query, doc, setDoc, deleteDoc, getDoc, addDoc, getDocs, collection, where } from "firebase/firestore";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {db} from "./firebaseConfig";
 import "./ProposalPage.css";
 import "./PitchPage.css";
 import SubmitPitchComment from "./SubmitPitchComment";
 import PitchComment from "./PitchComment";
-import { useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams, useLocation} from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import {VoteContext} from "../context/VoteContext";
 
 
 
 
-function PitchPage () {
+function PitchPage (props) {
 
     const navigate = useNavigate();
     const auth = getAuth();
@@ -20,10 +21,17 @@ function PitchPage () {
     
     let [pitchData, setPitchData] = useState("");
     let [pitchCommentData, setPitchCommentData] = useState([]);
-    let [upVotes, setUpvotes] = useState(0);
-    let [downVotes, setDownvotes] = useState(0);
+    const [refresh, setRefresh] = useState(false);
+    const {votes, setVotes} = useContext(VoteContext);
+    const location = useLocation();
+    const pitchInfo= location.state ? location.state.pitchInfo : props.pitchInfo;
 
-    useEffect (() => {
+    useEffect(() => {
+        setPitchData(pitchInfo)
+    }, []);
+
+
+   /* useEffect (() => {
         
         const fetchPitchData = async () => {
             const q = query(collection(db, "pitches"), where("id", "==", parseInt(id)));
@@ -45,9 +53,8 @@ function PitchPage () {
 
         fetchPitchData();
 
-    }, [id]);
+    }, []);*/
 
-    console.log(pitchData)
 
     useEffect (() => {
             const fetchPitchCommentData = async () => {
@@ -55,7 +62,9 @@ function PitchPage () {
             const querySnapshot= await getDocs(q);
             const tempPitchCommentData = [];
             querySnapshot.forEach((doc) => {
-                tempPitchCommentData.push(doc.data());
+                tempPitchCommentData.push({...doc.data(),
+                    docId: doc.id
+                });
             });
 
                 tempPitchCommentData.sort((a, b) => new Date(a.time) - new Date(b.time));
@@ -67,40 +76,28 @@ function PitchPage () {
 
         fetchPitchCommentData();
 
-    }, [id]);
+    }, [refresh]);
 
-    const fetchUpvoteData = async () => {
-        const q = query(collection(db, "upvotes"), where("pitchId", "==", pitchData.id), where("isUpvote", "==", true));
-        const querySnapshot = await getDocs(q);
-        setUpvotes(querySnapshot.size);
-    }
-
-    const fetchDownvoteData = async () => {
-        const q = query(collection(db, "upvotes"), where("pitchId", "==", pitchData.id), where("isUpvote", "==", false));
-        const querySnapshot = await getDocs(q);
-        setDownvotes(querySnapshot.size);
-    }
-  
-
-    useEffect(() => {
-        if (pitchData && pitchData.id) {
-            fetchDownvoteData();
-        }
-    }, [pitchData]);
-    
-    useEffect(() => {
-        if (pitchData && pitchData.id) {
-            fetchUpvoteData();
-        }
-    }, [pitchData]);
-    
+   
 
     const castUpvote = async (event) => {
         event.preventDefault();
+        console.log("votes at start of castUpvote", votes);
+
         
         if (!auth.currentUser) {
             alert('You need to be logged in to vote.');
             return;
+        }
+
+        if (!votes[pitchData.id]) {
+            setVotes({
+                ...votes,
+                [pitchData.id]: {
+                    upvotes: 0,
+                    downvotes: 0
+                }
+            });
         }
     
         const voteRef = doc(db, 'upvotes', `${pitchData.id}_${auth.currentUser.uid}`);
@@ -110,27 +107,45 @@ function PitchPage () {
             if (voteSnapshot.data().isUpvote) {
                 // The user is toggling their vote off, so delete it.
                 await deleteDoc(voteRef);
+
+                //votes[pitchData.id].upvotes--;
+
             } else {
                 // The user is changing their vote from down to up, so update it.
                 await setDoc(voteRef, { pitchId: pitchData.id, userId: auth.currentUser.uid, isUpvote: true });
+
+                //votes[pitchData.id].downvotes++;
+                //votes[pitchData.id].upvotes--;
             }
         } else {
             // The user hasn't voted yet, so create a new upvote.
             await setDoc(voteRef, { pitchId: pitchData.id, userId: auth.currentUser.uid, isUpvote: true });
+           /* votes[pitchData.id].upvotes++;*/
         }
-    
-        // Fetch the updated vote count.
-        fetchUpvoteData();
-        fetchDownvoteData();
+
+        /*setVotes({...votes});*/
+
     }
 
     const castDownvote = async (event) => {
         event.preventDefault();
+        console.log("votes at start of castDownvote", votes);
+
         
         if (!auth.currentUser) {
             alert('You need to be logged in to vote.');
             return;
         }
+
+        /*if (!votes[pitchData.id]) {
+            setVotes({
+                ...votes,
+                [pitchData.id]: {
+                    upvotes: 0,
+                    downvotes: 0
+                }
+            });
+        }*/
     
         const voteRef = doc(db, 'upvotes', `${pitchData.id}_${auth.currentUser.uid}`);
         const voteSnapshot = await getDoc(voteRef);
@@ -139,29 +154,31 @@ function PitchPage () {
             if (!voteSnapshot.data().isUpvote) {
                 // The user is toggling their vote off, so delete it.
                 await deleteDoc(voteRef);
+
+                /*votes[pitchData.id].downvotes--;*/
+
             } else {
                 // The user is changing their vote from up to down, so update it.
                 await setDoc(voteRef, { pitchId: pitchData.id, userId: auth.currentUser.uid, isUpvote: false });
+                /*votes[pitchData.id].upvotes--;
+                votes[pitchData.id].downvotes++;*/
             }
         } else {
             // The user hasn't voted yet, so create a new upvote.
             await setDoc(voteRef, { pitchId: pitchData.id, userId: auth.currentUser.uid, isUpvote: false });
+            /*votes[pitchData.id].downvotes++;*/
         }
+
+       /* setVotes({...votes});*/
     
-        // Fetch the updated vote count.
-        fetchDownvoteData();
-        fetchUpvoteData();
     }
     
-
-    if (!pitchData) {
-
-        return <div>Revoloading...</div>;
-    }
 
     const {name, socials, description, investment, user} = pitchData;
 
-
+    const triggerUpdate = () => {
+        setRefresh(!refresh);
+    }
     const handleFileClick = () => {
         navigate(`/pitchList/pitchPage/${pitchData.id}/file`,{ state: { pitchCommentData } } );
     }
@@ -178,10 +195,7 @@ function PitchPage () {
                 <h3 className="pitch-header">- Project Socials -</h3>
                 <p className="project-socials">{socials}</p>
             </div>
-            <div className="vote">
-                <div className="up">Up: {upVotes}</div>
-                <div className="down">Down: {downVotes}</div>
-            </div>
+        
             <div className="vote-header">Vote:</div>
             <button className="btn btn-dark down" onClick={castUpvote}><FaArrowUp /></button>
             <button className= "btn btn-dark down" onClick={castDownvote}><FaArrowDown /></button>
@@ -189,12 +203,12 @@ function PitchPage () {
                     <button className= "btn btn-danger" onClick={handleFileClick}>File</button>
                 </div>
                 <h1 className="discussion-headline">- Discussion -</h1>
-                {pitchCommentData.map((commentData) => (<div key={commentData.id}><PitchComment commentData={commentData}/> </div>))}
-                <SubmitPitchComment pitchData={pitchData} />
+                {pitchCommentData.map((commentData) => (<div key={commentData.id}><PitchComment pitchCommentData={pitchCommentData} triggerUpdate={triggerUpdate} commentData={commentData}/> </div>))}
+                <SubmitPitchComment triggerUpdate={triggerUpdate} pitchData={pitchData} />
         </div>
 
     );
 
 }
 
-export default PitchPage
+export default PitchPage;

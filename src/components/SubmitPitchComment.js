@@ -10,7 +10,7 @@ import { getAuth } from "firebase/auth";
 
 
 
-function SubmitPitchComment ({pitchData}) {
+function SubmitPitchComment ({pitchData, triggerUpdate}) {
 
     const auth = getAuth();
     const data = pitchData;
@@ -31,7 +31,7 @@ function SubmitPitchComment ({pitchData}) {
         const date = new Date();
         const dateString = date.toISOString();
 
-        let highestCommentId = 0;
+       /* let highestCommentId = 0;
 
         const querySnapshot = await getDocs(collection(db, "pitchcomments"));
         querySnapshot.forEach((doc) => {
@@ -39,17 +39,21 @@ function SubmitPitchComment ({pitchData}) {
             if (data.commentId && data.commentId > highestCommentId) {
                 highestCommentId = data.commentId;
             }
-        });
+        });*/
 
 
         await addDoc(collection(db, "pitchcomments"), {
             id: data.id,
-            commentId: highestCommentId +1,
+            //commentId: highestCommentId +1,
             time: dateString,
             comment: comment,
             userId: auth.currentUser.uid,
             user:auth.currentUser.displayName
         });
+
+        setComment("");
+
+        triggerUpdate();
     }
 
 

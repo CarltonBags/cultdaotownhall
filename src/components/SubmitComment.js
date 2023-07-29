@@ -10,7 +10,7 @@ import { getAuth } from "firebase/auth";
 
 
 
-function SubmitComment ({proposalData}) {
+function SubmitComment ({proposalData, commentUpdate}) {
 
     const auth = getAuth();
     const data = proposalData;
@@ -21,8 +21,10 @@ function SubmitComment ({proposalData}) {
         setComment(value);
     }
 
-    const postComment = async (event) => {
+    const postComment = async (event, ) => {
         event.preventDefault();
+        console.log("post Comment");
+
         
         if (!auth.currentUser) {
             alert('You need to be logged in to post a comment.');
@@ -35,8 +37,11 @@ function SubmitComment ({proposalData}) {
             id: data.id,
             time: dateString,
             comment: comment,
-            user:auth.currentUser.displayName
+            user:auth.currentUser.displayName,
+            userId:auth.currentUser.uid
         });
+
+        commentUpdate();
     }
 
 

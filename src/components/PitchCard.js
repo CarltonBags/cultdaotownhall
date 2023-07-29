@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { query, doc, setDoc, deleteDoc, getDoc, addDoc, getDocs, collection, where } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import "./ProposalPage.css";
@@ -7,12 +7,16 @@ import SubmitPitchComment from "./SubmitPitchComment";
 import PitchComment from "./PitchComment";
 import { useNavigate, useParams } from "react-router-dom";
 import "./PitchCard.css";
+import {VoteContext} from "../context/VoteContext";
 
 function PitchCard({ pitch }) {
   let [upVotes, setUpvotes] = useState(0);
   let [downVotes, setDownvotes] = useState(0);
+  const {votes} = useContext(VoteContext);
 
-  const fetchUpvoteData = async () => {
+ /* const fetchUpvoteData = async () => {
+    console.log("fetchUpVoteData in PitchCard");
+
     const q = query(
       collection(db, "upvotes"),
       where("pitchId", "==", pitch.id),
@@ -23,6 +27,8 @@ function PitchCard({ pitch }) {
   };
 
   const fetchDownvoteData = async () => {
+    console.log("fetchDownVoteData in PitchCard");
+
     const q = query(
       collection(db, "upvotes"),
       where("pitchId", "==", pitch.id),
@@ -33,16 +39,19 @@ function PitchCard({ pitch }) {
   };
 
   useEffect(() => {
+    console.log("useEffect fetchPitchVotedata in PitchCard");
+
     fetchDownvoteData();
     fetchUpvoteData();
   }, []);
+  */
 
   return (
     <div className="card-container">
       <h3 className="project-name">{pitch.name}</h3>
       <div className="votes-container">
-        <div className="card-vote">Up: {upVotes}</div>
-        <div className="card-vote">Down: {downVotes}</div>
+        <div className="card-vote">Up: {votes[pitch.id] ? votes[pitch.id].upvotes : 0}</div>
+        <div className="card-vote">Down: {votes[pitch.id] ? votes[pitch.id].downvotes : 0}</div>
       </div>
       {pitch.logo && (
         <img className="project-logo" src={pitch.logo} alt="Project Logo" />

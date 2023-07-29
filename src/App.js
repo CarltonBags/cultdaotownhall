@@ -12,89 +12,23 @@ import SubmitPitch from "./components/SubmitPitch";
 import PitchList from "./components/PitchList";
 import PitchPage from "./components/PitchPage";
 import File from "./components/File";
-
-
-
-
-
+import {VoteProvider} from "./context/VoteContext";
 
 
 
 
 function App() {
 
-
-  const [submitOpen, setSubmit] = useState (false);
-  const [enterOpen, setEnterOpen] = useState (false);
-  const [proposalOpen, setProposalOpen] = useState (false)
-  const [loginOpen, setLoginOpen] = useState (false);
-  const [registerOpen, setRegisterOpen] = useState (false);
-
-
-  const handleSubmitOpen = () => {
-    setSubmit(true)
-    console.log("submitOpen:", submitOpen); // Add this line
-  };
-
-  const handleSubmitClose = () => {
-    setSubmit(false)
-  };
-
-  const handleEnterOpen = () => {
-    setEnterOpen(true)
-  }
-
-  const handleEnterClose = () => {
-    setEnterOpen(false)
-  }
-
-  const handleBrandClick= () => {
-    setSubmit(false);
-    setEnterOpen(false);    
-    setProposalOpen(false);
-    setLoginOpen(false);
-    setRegisterOpen(false);
-
-  }
-
-  const handleProposalClick = () => {
-    setProposalOpen(true);
-    setSubmit(false);
-    setEnterOpen(false); 
-    setLoginOpen(false);
-    setRegisterOpen(false);
-
-  }
-
-  const handleLoginClick = () => {
-    setProposalOpen(false);
-    setSubmit(false);
-    setEnterOpen(false); 
-    setLoginOpen(true);
-    setRegisterOpen(false);
-
-  }
-
-  const handleRegisterClick = () => {
-    setProposalOpen(false);
-    setSubmit(false);
-    setEnterOpen(false); 
-    setLoginOpen(false);
-    setRegisterOpen(true);
-  }
-
-
-  
-
   return (
+    <VoteProvider>
     <div>
 <Router>
   <Navbar />
   <Routes>
     <Route path="/" element={<LandingPage />} />
     <Route path="/submit" element={<SubmitProposal />} />
-    <Route path="/proposalList" element={<ProposalList handleProposalClick={handleProposalClick}/>} />
-    <Route path="proposalList/proposalPage/:id" element={<ProposalPage handleProposalClick={handleProposalClick}/>} />
+    <Route path="/proposalList" element={<ProposalList />} />
+    <Route path="proposalList/proposalPage/:id" element={<ProposalPage />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route path="/submitPitch" element={<SubmitPitch />} />
@@ -107,6 +41,7 @@ function App() {
 </Router>
 
     </div>
+    </VoteProvider>
 );
 
 }

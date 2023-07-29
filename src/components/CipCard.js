@@ -6,13 +6,14 @@ import {Link} from "react-router-dom";
 
 function CipCard () {
 
+    console.log("CipCard is rendering");
 
 
 
     return (
         <div className="cip-container">
             <div className="cip-sub-container">
-            <h2 className="cip-header"> Improvement Proposals</h2>
+            <h2 className="cip-header"> Improvement Motions</h2>
             <img className="cip-img" src="/brand.png" alt="cip"/>
             <div className="button-container">
                 <div className="enter">

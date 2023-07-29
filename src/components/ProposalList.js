@@ -9,7 +9,7 @@ import { getAuth } from "firebase/auth";
 
 
 
-function ProposalList ({handleProposalClick}) {
+function ProposalList () {
 
     const navigate = useNavigate();
     const [proposalInfo, setProposalInfo] = useState ([]);
@@ -17,12 +17,14 @@ function ProposalList ({handleProposalClick}) {
 
 
 useEffect (()=> {
+    console.log("ProposalList rendering")
 
     const fetchProposalData = async () => {
 
         try {
             //fetch the documents in the collection
             const querySnapshot = await getDocs(collection(db, "proposals"));
+            console.log(`Fetched ${querySnapshot.size} document(s) from proposals collection`);
 
             //Process the retrieved docs
             querySnapshot.forEach((doc) => {
@@ -55,13 +57,12 @@ useEffect (()=> {
     
 
     const handleClick = (proposalInfo) => {
-        handleProposalClick();
         navigate(`/proposalList/proposalPage/${proposalInfo.id}`)
         }
 
     return (
         <div>
-        <div><h1 className="pl-header">Cult DAO Improvement Proposals</h1></div>
+        <div><h1 className="pl-header">Cult DAO Improvement Motions</h1></div>
         <div className="proposal-list" >
             {proposalInfo.map((proposal) => (
         <div key={proposal.id} onClick={() => handleClick(proposal)}>

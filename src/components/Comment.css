@@ -32,3 +32,18 @@
     padding-right:5px;
 }
 
+.replybox{
+    min-height: 150px;
+    width:60%;
+}
+
+.textbox{
+    min-height:150px;
+    margin:auto;
+    margin-top: 10px;
+    width:60%;
+    border: 3px solid black;
+    border-radius:5px;
+
+    padding-top:10px;
+}

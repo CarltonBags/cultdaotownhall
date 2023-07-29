@@ -12,3 +12,12 @@
 border-top:1px solid black;
 text-align:right;
 }
+
+.replying{
+    text-align:left;
+    font-family: Special Elite;
+    font-size: 0.8rem;
+    font-style:italic;
+    margin-left:2px;
+
+}

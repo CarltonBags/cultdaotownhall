@@ -15,8 +15,9 @@ function SubmitPitch() {
   const [socials, setSocials] = useState("");
   const [investment, setInvestment] = useState("");
   const [logo, setLogo] = useState(null);
+  const [media, setMedia] = useState("");
 
-  const handleLogoChange = async (event) => {
+ /* const handleLogoChange = async (event) => {
     const selectedLogo = event.target.files[0];
     const storage = getStorage();
     const storageRef = ref(storage, "logos/" + selectedLogo.name);
@@ -29,7 +30,7 @@ function SubmitPitch() {
       console.error("Error uploading logo:", error);
       setLogo(null);
     }
-  };
+  };*/
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -45,6 +46,10 @@ function SubmitPitch() {
 
   const handleSocialChange = (event) => {
     setSocials(event.target.value);
+  };
+
+  const handleMediaChange = (event) => {
+    setMedia(event.target.value);
   };
 
   const postPitch = async (event) => {
@@ -90,6 +95,7 @@ function SubmitPitch() {
       id: highestId + 1,
       time: dateString,
       user: auth.currentUser.displayName,
+      media: media
     };
 
     if (logoURL !== null) {
@@ -103,6 +109,7 @@ function SubmitPitch() {
     setSocials("");
     setInvestment("");
     setLogo(null);
+    setMedia("");
   };
 
   return (
@@ -154,6 +161,17 @@ function SubmitPitch() {
             value={investment}
           />
           </div>
+        </div>
+        <div className="label-container">
+          <label className="sub-head">
+            - Do you have a Pitch Deck? Please share the URL -
+          </label>
+          <input
+            type="text"
+            name="socials"
+            onChange={handleMediaChange}
+            value={socials}
+          />
         </div>
        {/* <div className="label-container">
           <label className="sub-head">- Project Logo -</label>

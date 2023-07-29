@@ -13,4 +13,7 @@ input[type="submit"] {
 
 }
 
-
+.edit{
+    margin-left:5px;
+    min-width:60px;
+}

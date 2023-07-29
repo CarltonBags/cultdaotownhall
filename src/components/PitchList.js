@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { query, doc, setDoc, deleteDoc, getDoc, addDoc, getDocs, collection, where } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import "./ProposalList.css";
 import PitchCard from "./PitchCard";
 import "./PitchList.css";
 import { useNavigate, useParams} from "react-router-dom";
+import {VoteContext} from "../context/VoteContext";
+
 
 function PitchList() {
-  let {id}=useParams;
+  let {id}=useParams();
   const navigate = useNavigate();
   const [pitchInfo, setPitchInfo] = useState([]);
-  let [upVotes, setUpvotes] = useState(0);
-  let [downVotes, setDownvotes] = useState(0);
+  const {votes, setVotes} = useContext(VoteContext)
+
 
 
   useEffect(() => {
+    console.log("Pitchlist is rendering");
+
     const fetchPitchData = async () => {
       try {
-        //fetch the documents in the collection
         const querySnapshot = await getDocs(collection(db, "pitches"));
-
-        //Process the retrieved docs
         const data = querySnapshot.docs.map((doc) => {
-          //Access the document data
           const pitchData = doc.data();
 
           //Do something with the data
@@ -40,6 +40,7 @@ function PitchList() {
         });
 
         setPitchInfo(data);
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -48,10 +49,49 @@ function PitchList() {
     fetchPitchData();
   }, []);
 
+
+  const fetchVoteData = async () => {
+    const q = query(collection(db, "upvotes"));
+    const querySnapshot = await getDocs(q);
+    const votesData = {}; // Object to hold our vote data
+  
+    querySnapshot.forEach((doc) => {
+      const voteData = doc.data();
+      const pitchId = voteData.pitchId;
+      const isUpvote = voteData.isUpvote;
+  
+      if (!votesData[pitchId]) {
+        // If there's no entry for this pitchId, create one
+        votesData[pitchId] = {
+          upvotes: 0,
+          downvotes: 0
+        };
+      }
+  
+      if (isUpvote) {
+        // If the vote is an upvote, increment the upvotes field
+        votesData[pitchId].upvotes += 1;
+      } else {
+        // If the vote is a downvote, increment the downvotes field
+        votesData[pitchId].downvotes += 1;
+      }
+    });
+  
+    // Set the state
+    setVotes(votesData);
+  }
+  
+
+
+useEffect(() => {
+    console.log("fetchVoteData on PitchPage");
+        fetchVoteData();
+  }, []);
+
   
 
   const handlePitchClick = (pitchInfo) => {
-    navigate(`/pitchList/pitchPage/${pitchInfo.id}`);
+    navigate(`/pitchList/pitchPage/${pitchInfo.id}`, {state: {pitchInfo}});
   };
 
   return (

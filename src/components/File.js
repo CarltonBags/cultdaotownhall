@@ -19,6 +19,8 @@ function File (props) {
 
 
     useEffect (() => {
+        console.log("fetchFileData");
+
         const fetchFileData = async () => {
         const q = query(collection(db, "files"), where("id", "==", parseInt(id)));
         const querySnapshot= await getDocs(q);

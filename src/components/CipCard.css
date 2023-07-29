@@ -1,9 +1,9 @@
 .cip-container {
+    flex:1;
     height:auto;
     border: 3px solid black;
     border-radius: 7px;
     margin:40px;
-    width:50%;
 }
 
 .cip-header {

@@ -3,10 +3,11 @@ import "./ProposalCard.css";
 
 function ProposalCard ({proposal}) {
 
+    console.log("ProposalCard rendering");
 
     return (
         <div className="p-card-container">
-            <h3 className="proposal-id"> CIP-{proposal.id}</h3>
+            <h3 className="proposal-id"> CIM-{proposal.id}</h3>
             <h2 className="proposal-title">{proposal.title}</h2>
             <div className="proposal-submitter-container">
                 <h3 className="proposal-submitter">Submitted by: {proposal.user}</h3>

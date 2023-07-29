@@ -63,7 +63,7 @@ function SubmitProposal () {
 
     return (
         <div className="proposal-container">
-            <h1 className="proposal-headline">Submit Proposal</h1>
+            <h1 className="proposal-headline">Submit Motion</h1>
             <form onSubmit={postData}>
                 <div className="label-container">
                     <label className="sub-head">- Title -</label>

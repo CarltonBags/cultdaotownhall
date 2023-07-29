@@ -4,8 +4,9 @@ import {Link} from "react-router-dom";
 
 
 
-function CipCard () {
+function IntroCard () {
 
+    console.log("IntroCard is rendering");
 
 
 
@@ -28,5 +29,5 @@ function CipCard () {
     );
 }
 
-export default CipCard;
+export default IntroCard;
 
