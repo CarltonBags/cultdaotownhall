@@ -57,7 +57,7 @@ const handleButtonClick = () => {
           <a className="dune" href="https://cultdao.io/manifesto.pdf" >Docs</a>
           </ul>
           </div>
-          <form className="d-flex" role="search">
+          <form className="form-inline" role="search">
           {user ? (
             <>
               <span className="userdisplay">{user.displayName}</span>

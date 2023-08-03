@@ -3,6 +3,12 @@
     margin:auto;
     margin-right:9px;
     font-size: 1.2rem;
+    white-space:nowrap;
+}
+
+.form-inline {
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .login-button {

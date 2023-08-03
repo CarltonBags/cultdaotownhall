@@ -17,7 +17,7 @@ function CipCard () {
             <div className="cip-image">
             <img className="cip-img" src="/brand.png" alt="cip"/>
             </div>
-            <div className="button-container">
+            <div className="button-container button-container-cip">
                 <div className="enter">
                  <Link to="/proposalList" className="btn btn-dark enter-btn">Explore</Link>
                 </div>

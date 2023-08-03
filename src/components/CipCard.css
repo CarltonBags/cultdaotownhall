@@ -6,6 +6,20 @@
     margin:40px;
 }
 
+@media screen and (max-width: 768px){
+    .cip-container{
+        height: 300px;
+    }
+
+}
+
+@media screen and (min-width: 1100px){
+    .cip-container{
+        height: 500px;
+    }
+
+}
+
 .cip-header {
     font-family: Benguiat;
     text-align:center;
@@ -31,3 +45,6 @@
     margin-top:10px;
 }
 
+.button-container-cip{
+    margin-top:100px;
+}
