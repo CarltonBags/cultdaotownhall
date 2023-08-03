@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "./Amendment.css";
 import { getAuth } from "firebase/auth";
-import { doc, addDoc, getDocs, collection, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import {db} from "./firebaseConfig";
+import DOMPurify from "dompurify";
 
 
 function Amendment ({amendmentData, triggerUpdate}) {
@@ -21,7 +22,7 @@ const handleAmendDecline = async () => {
     triggerUpdate();
 }
 
-
+let cleanAmendment = DOMPurify.sanitize(amendmentData.amendment);
 
 return(
 <div className="amendment-box">
@@ -31,7 +32,7 @@ return(
         {amendmentData.status === false ? (<span className="decline"> declined! </span>):(null)}
     </div>
     <div>
-        <div className="text" dangerouslySetInnerHTML={{ __html: amendmentData.amendment }}/>
+        <div className="text" dangerouslySetInnerHTML={{ __html: cleanAmendment }}/>
     </div>
     {auth.currentUser && amendmentData.userId === auth.currentUser.uid ? (
     <div>

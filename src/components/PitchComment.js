@@ -4,6 +4,7 @@ import { getAuth } from "firebase/auth";
 import "./PitchComment.css";
 import { doc, addDoc, getDocs, collection, updateDoc } from "firebase/firestore";
 import {db} from "./firebaseConfig";
+import DOMPurify from "dompurify";
 
 
 
@@ -123,6 +124,8 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
         setIsReplying(false);
     }
 
+    let cleanComment = DOMPurify.sanitize(commentData.comment);
+    let cleanUser = DOMPurify.sanitize(commentData.originuser);
 
 
     return (
@@ -144,9 +147,9 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
                         <span className="username">{commentData.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {commentData.reply && <p className="replying">Reply @{commentData.originuser}</p>}
+                    {commentData.reply && <p className="replying">Reply @{cleanUser}</p>}
                     <div>
-                        <div className="text" dangerouslySetInnerHTML={{ __html: commentData.comment }}/>
+                        <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment }}/>
                         <div className="comment-footer">
                             <button onClick={handleArchive} className="archive">archive</button>
                             <button onClick={handleEdit} className="archive">edit</button>
@@ -168,9 +171,9 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
                         <span className="username">{commentData.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {commentData.reply && <p className="replying">Reply @{commentData.originuser}</p>}
+                    {commentData.reply && <p className="replying">Reply @{cleanUser}</p>}
                     <div>
-                        <div className="text" dangerouslySetInnerHTML={{ __html: commentData.comment }}/>
+                        <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment }}/>
                         <div className="comment-footer">
                             <button onClick={handleArchive} className="archive">archive</button>
                             <button onClick={handleEdit} className="archive">edit</button>

@@ -189,6 +189,8 @@ function PitchPage (props) {
 
     let cleanDescription = DOMPurify.sanitize(description);
     let cleanInvestment = DOMPurify.sanitize(investment);
+
+    
     return (
         <div className="container">
             <div className="sub-container">

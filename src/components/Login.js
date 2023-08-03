@@ -25,6 +25,7 @@ function Login () {
             }
         })
         .catch((error) => {
+            // eslint-disable-next-line
             const errorCode = error.code;
             const errorMessage = error.message;
             alert(errorMessage);
@@ -36,14 +37,19 @@ function Login () {
     const auth = getAuth();
     try {
         const result = await signInWithPopup(auth, provider);
+        // eslint-disable-next-line
         const user = result.user;
         // ...
         navigate('/');  // navigate to the main page
 
     } catch (error) {
+        // eslint-disable-next-line
         const errorCode = error.code;
+        // eslint-disable-next-line
         const errorMessage = error.message;
+        // eslint-disable-next-line
         const email = error.email;
+        // eslint-disable-next-line
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
        

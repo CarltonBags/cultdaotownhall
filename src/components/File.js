@@ -11,15 +11,14 @@ function File (props) {
 
 
     const [file, setFile] = useState([])
+    // eslint-disable-next-line
     let {id} = useParams();
 
     const location = useLocation();
+    // eslint-disable-next-line
     const commentData = location.state ? location.state.pitchCommentData : props.pitchCommentData;
     const pitchInfo= location.state ? location.state.pitchData : props.pitchData;
-    console.log(location.state);
-    console.log(props);
-    console.log(pitchInfo);
-    console.log(id);
+    
     
 
     useEffect (() => {

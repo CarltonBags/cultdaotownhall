@@ -13,6 +13,7 @@ import { getAuth } from "firebase/auth";
 function SubmitPitchComment ({pitchData, triggerUpdate}) {
 
     const auth = getAuth();
+    // eslint-disable-next-line
     const data = pitchData;
 
     const [comment, setComment] = useState("");
