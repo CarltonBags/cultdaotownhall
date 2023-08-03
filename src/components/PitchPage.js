@@ -1,4 +1,4 @@
-import { query, doc, setDoc, deleteDoc, getDoc, addDoc, getDocs, collection, where } from "firebase/firestore";
+import { query, doc, setDoc, deleteDoc, getDoc, getDocs, collection, where } from "firebase/firestore";
 import React, {useState, useEffect, useContext} from "react";
 import {db} from "./firebaseConfig";
 import "./ProposalPage.css";
@@ -9,6 +9,7 @@ import { useNavigate, useParams, useLocation} from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import {VoteContext} from "../context/VoteContext";
+import DOMPurify from "dompurify";
 
 
 
@@ -26,9 +27,12 @@ function PitchPage (props) {
     const location = useLocation();
     const pitchInfo= location.state ? location.state.pitchInfo : props.pitchInfo;
 
+    
+
+
     useEffect(() => {
         setPitchData(pitchInfo)
-    }, []);
+    },[pitchInfo, id]);
 
 
    /* useEffect (() => {
@@ -58,7 +62,7 @@ function PitchPage (props) {
 
     useEffect (() => {
             const fetchPitchCommentData = async () => {
-            const q = query(collection(db, "pitchcomments"), where("id", "==", parseInt(id)));
+            const q = query(collection(db, "pitchcomments"), where("pitchId", "==", pitchInfo.id));
             const querySnapshot= await getDocs(q);
             const tempPitchCommentData = [];
             querySnapshot.forEach((doc) => {
@@ -76,7 +80,7 @@ function PitchPage (props) {
 
         fetchPitchCommentData();
 
-    }, [refresh]);
+    }, [refresh, id, pitchInfo]);
 
    
 
@@ -172,7 +176,7 @@ function PitchPage (props) {
        /* setVotes({...votes});*/
     
     }
-    
+   
 
     const {name, socials, description, investment, user} = pitchData;
 
@@ -180,18 +184,20 @@ function PitchPage (props) {
         setRefresh(!refresh);
     }
     const handleFileClick = () => {
-        navigate(`/pitchList/pitchPage/${pitchData.id}/file`,{ state: { pitchCommentData } } );
+        navigate(`/pitchList/pitchPage/${pitchData.id}/file`,{ state: { pitchCommentData, pitchData} } );
     }
 
+    let cleanDescription = DOMPurify.sanitize(description);
+    let cleanInvestment = DOMPurify.sanitize(investment);
     return (
         <div className="container">
             <div className="sub-container">
                 <h1 className="headline">- {name} -</h1>
                 <p className="pitch-header">Submitted by: {user}</p>
                 <h3 className="pitch-header">- Project Description -</h3>
-                <div className="project-description" dangerouslySetInnerHTML={{ __html: description}} />
+                <div className="project-description" dangerouslySetInnerHTML={{ __html: cleanDescription}} />
                 <h3 className="pitch-header">- Investment Condititons -</h3>
-                <div className="project-description" dangerouslySetInnerHTML={{ __html: investment}} />
+                <div className="project-description" dangerouslySetInnerHTML={{ __html: cleanInvestment}} />
                 <h3 className="pitch-header">- Project Socials -</h3>
                 <p className="project-socials">{socials}</p>
             </div>
@@ -203,7 +209,7 @@ function PitchPage (props) {
                     <button className= "btn btn-danger" onClick={handleFileClick}>File</button>
                 </div>
                 <h1 className="discussion-headline">- Discussion -</h1>
-                {pitchCommentData.map((commentData) => (<div key={commentData.id}><PitchComment pitchCommentData={pitchCommentData} triggerUpdate={triggerUpdate} commentData={commentData}/> </div>))}
+                {pitchCommentData.map((commentData) => (<div key={commentData.docId}><PitchComment pitchInfo={pitchInfo} pitchCommentData={pitchCommentData} triggerUpdate={triggerUpdate} commentData={commentData}/> </div>))}
                 <SubmitPitchComment triggerUpdate={triggerUpdate} pitchData={pitchData} />
         </div>
 

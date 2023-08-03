@@ -19,3 +19,12 @@
     margin-right: 5px;
     font-family:Benguiat;
 }
+
+.dune{
+    margin: auto;
+    text-align: center;
+    font-family: Benguiat;
+    color: black;
+    display:inline-block;
+    text-decoration: none;
+}

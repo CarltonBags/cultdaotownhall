@@ -21,7 +21,8 @@
 
 .text{
     text-align:left;
-    padding:10px;  
+    padding:10px; 
+    font-size: 0.9rem; 
 }
 
 .username{
@@ -41,9 +42,8 @@
     min-height:150px;
     margin:auto;
     margin-top: 10px;
-    width:60%;
+    width:65%;
     border: 3px solid black;
     border-radius:5px;
-
     padding-top:10px;
 }

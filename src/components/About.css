@@ -43,9 +43,11 @@
   
   .site-details {
     padding-top: 30px;
-    margin:5%;
+    width: 60%;
+    margin:auto;
     text-align: justify;
     font-family: "Special Elite";
+
   }
 
   .site-details p {
@@ -58,5 +60,12 @@
     list-style-type: disc;
     margin-bottom:50px;
   }
+
+  .about{
+    display: block;
+    text-align:center;
+    color:black;
+    font-family: Special Elite;
+}
   
   

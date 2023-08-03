@@ -17,7 +17,7 @@ const handleButtonClick = () => {
     navigate("/");
 }
 
-const handleClick = () => {
+/*const handleClick = () => {
     handleLoginClick();
     navigate("/login");
  }
@@ -25,7 +25,7 @@ const handleClick = () => {
  const handleRClick = () => {
     handleRegisterClick();
     navigate("/register");
- }
+ }*/
 
  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -46,9 +46,17 @@ const handleClick = () => {
   return (
     <nav className="navbar bg-body-primary">
       <div className="container-fluid">
-          <a onClick= {handleButtonClick} className="navbar-brand" href="#">
-              <img src="/townhall.png" width="auto" height="100"/>
+          <a onClick= {handleButtonClick} className="navbar-brand" href={"/"} >
+              <img src="/townhall.png" alt="img" width="auto" height="100"/>
           </a>
+          <div>
+          <ul className="dune">
+          <a className="dune" href="https://dune.com/cultdaoio/cult-dao" >Stats</a>
+          </ul>
+          <ul className="dune">
+          <a className="dune" href="https://cultdao.io/manifesto.pdf" >Docs</a>
+          </ul>
+          </div>
           <form className="d-flex" role="search">
           {user ? (
             <>

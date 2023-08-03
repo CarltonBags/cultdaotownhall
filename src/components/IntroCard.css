@@ -1,6 +1,6 @@
 .cip-container {
     flex:1;
-    height:auto;
+    height: 400px; /* for example */
     border: 3px solid black;
     border-radius: 7px;
     margin:40px;
@@ -19,12 +19,14 @@
 
 .button-container {
     text-align: center;
+    margin-bottom: 10px; /* Adjust as needed */
 }
 
 .enter {
     display: inline-block;
     margin: auto;
-    margin-right:2%;
+    margin-right:5%;
+    margin-bottom:1%;
     min-width: 80px;
 }
 
@@ -47,6 +49,15 @@
 }
 
 .cip-sub-container {
-    padding:20px;
+    padding: 20px;
+    justify-content: space-between;
+    height:400px;
+
 }
 
+.about {
+    display: block;
+    text-align: center;
+    color: black;
+    font-family: Special Elite;
+}

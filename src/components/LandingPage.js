@@ -1,7 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
 import "./LandingPage.css";
-import About from "./About";
-import { Link } from "react-router-dom";
 import CipCard from "./CipCard";
 import IntroCard from "./IntroCard";
 
@@ -11,8 +9,6 @@ import IntroCard from "./IntroCard";
 
 
 function LandingPage () {
-    console.log("LandingPage is rendering");
-
    
     return (
         <div>

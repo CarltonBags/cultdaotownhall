@@ -1,0 +1,139 @@
+[debug] [2023-07-29T13:06:44.887Z] ----------------------------------------------------------------------
+[debug] [2023-07-29T13:06:44.888Z] Command:       /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/node /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/firebase deploy
+[debug] [2023-07-29T13:06:44.889Z] CLI Version:   12.4.5
+[debug] [2023-07-29T13:06:44.889Z] Platform:      darwin
+[debug] [2023-07-29T13:06:44.889Z] Node Version:  v18.16.0
+[debug] [2023-07-29T13:06:44.891Z] Time:          Sat Jul 29 2023 15:06:44 GMT+0200 (Mitteleuropäische Sommerzeit)
+[debug] [2023-07-29T13:06:44.891Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-29T13:06:44.892Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-07-29T13:06:44.945Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-29T13:06:44.945Z] > authorizing via signed-in user (carltonbags@gmail.com)
+[debug] [2023-07-29T13:06:44.946Z] [iam] checking project improving-cult-dao for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-07-29T13:06:44.946Z] > refreshing access token with scopes: []
+[debug] [2023-07-29T13:06:44.946Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-07-29T13:06:44.946Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-29T13:07:59.956Z] *** [apiv2] error from fetch(https://firebase-public.firebaseio.com/cli.json, {"headers":{},"method":"GET"}): FetchError: request to https://firebase-public.firebaseio.com/cli.json failed, reason: connect ETIMEDOUT 2600:1901:0:4d00:::443
+[warn] ⚠  Unable to fetch the CLI MOTD and remote config. 
+[debug] [2023-07-29T13:07:59.959Z] Failed to fetch MOTD FirebaseError: Failed to make request to https://firebase-public.firebaseio.com/cli.json
+[debug] [2023-07-29T13:07:59.964Z] *** [apiv2] error from fetch(https://www.googleapis.com/oauth2/v3/token, {"headers":{},"method":"POST","body":{"_overheadLength":545,"_valueLength":212,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------595016570485975998939862","_events":{},"_eventsCount":1}}): FetchError: request to https://www.googleapis.com/oauth2/v3/token failed, reason: connect ETIMEDOUT 2a00:1450:4016:80b::200a:443
+[debug] [2023-07-29T13:07:59.964Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2023-07-29T13:07:59.965Z] > refreshing access token with scopes: []
+[debug] [2023-07-29T13:07:59.966Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-07-29T13:07:59.966Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-29T13:09:14.969Z] *** [apiv2] error from fetch(https://www.googleapis.com/oauth2/v3/token, {"headers":{},"method":"POST","body":{"_overheadLength":545,"_valueLength":212,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------122954490028512364088838","_events":{},"_eventsCount":1}}): FetchError: request to https://www.googleapis.com/oauth2/v3/token failed, reason: connect ETIMEDOUT 2a00:1450:4016:80b::200a:443
+[debug] [2023-07-29T13:09:14.970Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2023-07-29T13:17:01.478Z] ----------------------------------------------------------------------
+[debug] [2023-07-29T13:17:01.479Z] Command:       /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/node /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/firebase login
+[debug] [2023-07-29T13:17:01.479Z] CLI Version:   12.4.5
+[debug] [2023-07-29T13:17:01.479Z] Platform:      darwin
+[debug] [2023-07-29T13:17:01.480Z] Node Version:  v18.16.0
+[debug] [2023-07-29T13:17:01.480Z] Time:          Sat Jul 29 2023 15:17:01 GMT+0200 (Mitteleuropäische Sommerzeit)
+[debug] [2023-07-29T13:17:01.480Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-29T13:17:01.481Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] Already logged in as carltonbags@gmail.com
+[debug] [2023-07-29T13:17:11.548Z] Error: Timed out.
+    at Timeout._onTimeout (/Users/carltonbags/.nvm/versions/node/v18.16.0/lib/node_modules/firebase-tools/lib/utils.js:254:49)
+    at listOnTimeout (node:internal/timers:569:17)
+    at process.processTimers (node:internal/timers:512:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-07-29T13:19:24.416Z] ----------------------------------------------------------------------
+[debug] [2023-07-29T13:19:24.417Z] Command:       /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/node /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/firebase init
+[debug] [2023-07-29T13:19:24.417Z] CLI Version:   12.4.5
+[debug] [2023-07-29T13:19:24.417Z] Platform:      darwin
+[debug] [2023-07-29T13:19:24.417Z] Node Version:  v18.16.0
+[debug] [2023-07-29T13:19:24.417Z] Time:          Sat Jul 29 2023 15:19:24 GMT+0200 (Mitteleuropäische Sommerzeit)
+[debug] [2023-07-29T13:19:24.417Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-29T13:19:24.419Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-07-29T13:19:24.471Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-29T13:19:24.471Z] > authorizing via signed-in user (carltonbags@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/carltonbags/github/cultdaotownhall
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2023-07-29T13:20:12.438Z] Error: Timed out.
+    at Timeout._onTimeout (/Users/carltonbags/.nvm/versions/node/v18.16.0/lib/node_modules/firebase-tools/lib/utils.js:254:49)
+    at listOnTimeout (node:internal/timers:569:17)
+    at process.processTimers (node:internal/timers:512:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-07-29T13:20:29.485Z] ----------------------------------------------------------------------
+[debug] [2023-07-29T13:20:29.486Z] Command:       /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/node /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/firebase init
+[debug] [2023-07-29T13:20:29.486Z] CLI Version:   12.4.5
+[debug] [2023-07-29T13:20:29.486Z] Platform:      darwin
+[debug] [2023-07-29T13:20:29.486Z] Node Version:  v18.16.0
+[debug] [2023-07-29T13:20:29.487Z] Time:          Sat Jul 29 2023 15:20:29 GMT+0200 (Mitteleuropäische Sommerzeit)
+[debug] [2023-07-29T13:20:29.487Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-29T13:20:29.488Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-07-29T13:20:29.539Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-29T13:20:29.539Z] > authorizing via signed-in user (carltonbags@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/carltonbags/github/cultdaotownhall
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-07-29T13:20:37.646Z] Using project from CLI flag: improving-cult-dao
+[debug] [2023-07-29T13:20:37.647Z] > refreshing access token with scopes: []
+[debug] [2023-07-29T13:20:37.648Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-07-29T13:20:37.648Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-29T13:21:33.066Z] ----------------------------------------------------------------------
+[debug] [2023-07-29T13:21:33.067Z] Command:       /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/node /Users/carltonbags/.nvm/versions/node/v18.16.0/bin/firebase deploy
+[debug] [2023-07-29T13:21:33.067Z] CLI Version:   12.4.5
+[debug] [2023-07-29T13:21:33.067Z] Platform:      darwin
+[debug] [2023-07-29T13:21:33.067Z] Node Version:  v18.16.0
+[debug] [2023-07-29T13:21:33.067Z] Time:          Sat Jul 29 2023 15:21:33 GMT+0200 (Mitteleuropäische Sommerzeit)
+[debug] [2023-07-29T13:21:33.067Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-29T13:21:33.068Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-07-29T13:21:33.120Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-29T13:21:33.120Z] > authorizing via signed-in user (carltonbags@gmail.com)
+[debug] [2023-07-29T13:21:33.120Z] [iam] checking project improving-cult-dao for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-07-29T13:21:33.121Z] > refreshing access token with scopes: []
+[debug] [2023-07-29T13:21:33.121Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-07-29T13:21:33.121Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-29T13:22:48.128Z] *** [apiv2] error from fetch(https://www.googleapis.com/oauth2/v3/token, {"headers":{},"method":"POST","body":{"_overheadLength":545,"_valueLength":212,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------632133015402839691320931","_events":{},"_eventsCount":1}}): FetchError: request to https://www.googleapis.com/oauth2/v3/token failed, reason: connect ETIMEDOUT 2a00:1450:4001:80b::200a:443
+[debug] [2023-07-29T13:22:48.129Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2023-07-29T13:22:48.131Z] > refreshing access token with scopes: []
+[debug] [2023-07-29T13:22:48.133Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-07-29T13:22:48.133Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-29T13:22:48.137Z] *** [apiv2] error from fetch(https://firebase-public.firebaseio.com/cli.json, {"headers":{},"method":"GET"}): FetchError: request to https://firebase-public.firebaseio.com/cli.json failed, reason: connect ETIMEDOUT 2600:1901:0:4d00:::443
+[warn] ⚠  Unable to fetch the CLI MOTD and remote config. 
+[debug] [2023-07-29T13:22:48.139Z] Failed to fetch MOTD FirebaseError: Failed to make request to https://firebase-public.firebaseio.com/cli.json

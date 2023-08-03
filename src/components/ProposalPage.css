@@ -49,4 +49,51 @@
     font-size: 2rem;
     font-family: Benguiat;
     padding-top:10px;
+    margin-top: 30px;
+}
+
+.revoloading{
+    width: 50%;
+    margin: auto;
+    margin-top: 300px;
+    font-family: Special Elite;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.amendment{
+    min-height:150px;
+    margin:auto;
+    margin-top:-10px;
+    width:100%;
+    border-bottom: 3px solid black;
+    padding-top:10px;
+}
+
+.amendment-buttons {
+    margin: 5px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+
+}
+
+.proposalfooter {
+    text-align: right;
+    font-family: Special Elite;
+
+}
+
+.proposal-edit {
+    min-height:400px;
+    min-width: 100%;
+    margin:auto;
+    margin-top: -10px;
+    border-bottom: 3px solid black;
+    border-radius:0px;
+}
+
+.snap {
+    padding: 5px;
+    border: 2px solid black;
 }

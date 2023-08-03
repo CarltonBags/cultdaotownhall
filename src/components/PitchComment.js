@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Comment.css";
 import { getAuth } from "firebase/auth";
 import "./PitchComment.css";
-import { query, doc, setDoc, deleteDoc, getDoc, addDoc, getDocs, collection, where, updateDoc } from "firebase/firestore";
+import { doc, addDoc, getDocs, collection, updateDoc } from "firebase/firestore";
 import {db} from "./firebaseConfig";
-import ReactQuill from "react-quill";
 
 
 
 
-function PitchComment ({commentData, triggerUpdate, pitchCommentData}) {
+function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
     console.log(commentData);
+    console.log(pitchInfo);
+    
 
     const auth=getAuth();
     const [isEditing, setIsEditing] = useState(false);
     const [newComment, setNewComment] = useState('');
     const [isReply, setIsReplying] = useState(false)
     const [newReply, setNewReply] = useState("");
-    const data= commentData;
-    const date= new Date (data.time);
+    const date= new Date (commentData.time);
     const formattedMinutes = ("0" + date.getMinutes()).slice(-2); // ensures that minutes are always two digits
     const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}, ${date.getHours()}:${formattedMinutes}`;
 
-
+    
 
     const handleArchive = async (event) => {
         event.preventDefault();
@@ -34,24 +34,23 @@ function PitchComment ({commentData, triggerUpdate, pitchCommentData}) {
         const date = new Date();
         const dateString = date.toISOString();
 
-        console.log("handleArchive running")
-
         const commentQuery = collection(db, "files");
         const commentsSnapshot = await getDocs(commentQuery);
-        const commentExists = commentsSnapshot.docs.some(doc => 
-            doc.data().commentId === data.commentId && doc.data().id === data.id
+       const commentExists = commentsSnapshot.docs.some(doc => 
+            doc.data().commentId === commentData.docId
          );
 
     if (commentExists) {
         // If the comment already exists
-        alert("Comment already exists in the file.");
+        alert("the comment already exists in the file")
+
         return;
     }
         await addDoc(collection(db, "files"), {
-            id: data.id,
-            commentId: data.commentId,
+            pitchId: pitchInfo.id,
+            commentId: commentData.docId,
             time: dateString,
-            comment: data.comment,
+            comment: commentData.comment,
             user:auth.currentUser.displayName
         });
         
@@ -62,7 +61,7 @@ function PitchComment ({commentData, triggerUpdate, pitchCommentData}) {
 
         if(commentData.userId === auth.currentUser.uid){
             const div = document.createElement('div');
-            div.innerHTML = data.comment;
+            div.innerHTML = commentData.comment;
             const text = div.textContent || div.innerText || ''; //this will get you the text without html tags
 
         setIsEditing(true);
@@ -106,14 +105,13 @@ function PitchComment ({commentData, triggerUpdate, pitchCommentData}) {
         const dateString = date.toISOString();
 
         await addDoc(collection(db, "pitchcomments"), {
-            id: data.id,
-            //commentId: data.commentId,
+            pitchId: pitchInfo.id,
             time: dateString,
             comment: newReply,
             user:auth.currentUser.displayName,
             userId: auth.currentUser.uid,
             reply: isReply,
-            originuser:data.user
+            originuser: commentData.user
         });
 
         setIsReplying(false);
@@ -143,12 +141,12 @@ function PitchComment ({commentData, triggerUpdate, pitchCommentData}) {
                 <div>
                     <div className="main-box">
                     <div className="head">
-                        <span className="username">{data.user}</span> 
+                        <span className="username">{commentData.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {data.reply && <p className="replying">Reply @{data.originuser}</p>}
+                    {commentData.reply && <p className="replying">Reply @{commentData.originuser}</p>}
                     <div>
-                        <div className="text" dangerouslySetInnerHTML={{ __html: data.comment }}/>
+                        <div className="text" dangerouslySetInnerHTML={{ __html: commentData.comment }}/>
                         <div className="comment-footer">
                             <button onClick={handleArchive} className="archive">archive</button>
                             <button onClick={handleEdit} className="archive">edit</button>
@@ -167,12 +165,12 @@ function PitchComment ({commentData, triggerUpdate, pitchCommentData}) {
             ) : (
                 <div className="main-box">
                     <div className="head">
-                        <span className="username">{data.user}</span> 
+                        <span className="username">{commentData.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {data.reply && <p className="replying">Reply @{data.originuser}</p>}
+                    {commentData.reply && <p className="replying">Reply @{commentData.originuser}</p>}
                     <div>
-                        <div className="text" dangerouslySetInnerHTML={{ __html: data.comment }}/>
+                        <div className="text" dangerouslySetInnerHTML={{ __html: commentData.comment }}/>
                         <div className="comment-footer">
                             <button onClick={handleArchive} className="archive">archive</button>
                             <button onClick={handleEdit} className="archive">edit</button>

@@ -1,0 +1,72 @@
+.amendment-box{
+    width:60%;
+    margin:auto;
+    border:3px solid goldenrod;
+    margin-top:20px;
+    border-radius:5px;
+}
+
+.amendment-head{
+    height:30px;
+    text-align:right;
+    margin-bottom:5px;
+    border-bottom: 1px solid goldenrod;
+    color:white;
+    background-color: goldenrod;
+    display: flex;
+    justify-content: space-between;
+    font-family: Special Elite;
+    
+}
+
+.text{
+    text-align:left;
+    padding:10px; 
+    font-size: 0.9rem; 
+}
+
+.amendment-username{
+    padding-left:5px;
+}
+
+.textbox{
+    min-height:150px;
+    margin:auto;
+    margin-top: 10px;
+    width:50%;
+    border: 3px solid black;
+    border-radius:5px;
+    padding-top:10px;
+}
+
+.decision-buttons {
+    margin: 5px;
+    border-radius: 5px;
+    background-color: white;
+    border-style:ridge;
+    font-family: Special Elite;
+}
+
+.accept{
+    padding: 3px;
+}
+
+.decline{
+    padding: 3px;
+}
+
+.accepted-button {
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgb(142, 240, 142);
+    border-style:ridge;
+    font-family: Special Elite;
+}
+
+.declined-button {
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgb(243, 129, 129);
+    border-style:ridge;
+    font-family: Special Elite;
+}

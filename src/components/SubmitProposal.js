@@ -1,6 +1,6 @@
 import { getDocs, addDoc, collection } from "firebase/firestore";
 import React, {useState} from "react";
-import {db, app} from "./firebaseConfig";
+import {db} from "./firebaseConfig";
 import "./SubmitProposal.css";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; 
@@ -52,7 +52,9 @@ function SubmitProposal () {
             description: description,
             id: highestId + 1,
             time: dateString,
-            user: auth.currentUser.displayName
+            user: auth.currentUser.displayName,
+            userId: auth.currentUser.uid,
+            isEdited: null
         });
                     
         setTitle("");

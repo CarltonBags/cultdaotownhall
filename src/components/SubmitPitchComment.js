@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {db} from "./firebaseConfig";
 import ReactQuill from "react-quill";
-import { getDocs, addDoc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import "./SubmitComment.css";
 import { getAuth } from "firebase/auth";
 
@@ -43,7 +43,7 @@ function SubmitPitchComment ({pitchData, triggerUpdate}) {
 
 
         await addDoc(collection(db, "pitchcomments"), {
-            id: data.id,
+            pitchId: pitchData.id,
             //commentId: highestCommentId +1,
             time: dateString,
             comment: comment,

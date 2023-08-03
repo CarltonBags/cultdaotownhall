@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import SubmitProposal from "./components/SubmitProposal";
@@ -13,6 +13,9 @@ import PitchList from "./components/PitchList";
 import PitchPage from "./components/PitchPage";
 import File from "./components/File";
 import {VoteProvider} from "./context/VoteContext";
+import About from "./components/About";
+import AboutPitch from "./components/AboutPitch";
+
 
 
 
@@ -28,13 +31,15 @@ function App() {
     <Route path="/" element={<LandingPage />} />
     <Route path="/submit" element={<SubmitProposal />} />
     <Route path="/proposalList" element={<ProposalList />} />
-    <Route path="proposalList/proposalPage/:id" element={<ProposalPage />} />
+    <Route path="proposalList/about/" element={<About />} />
+    <Route path="proposalList/aboutpitch/" element={<AboutPitch />} />
+    <Route path="proposalList/proposalPage/:docId" element={<ProposalPage />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route path="/submitPitch" element={<SubmitPitch />} />
     <Route path="/pitchList" element={<PitchList />} />
-    <Route path="/pitchList/pitchPage/:id" element={<PitchPage />} />
-    <Route path="/pitchList/pitchPage/:id/file" element={<File />} />
+    <Route path="/pitchList/pitchPage/:docId" element={<PitchPage />} />
+    <Route path="/pitchList/pitchPage/:docId/file" element={<File />} />
 
   </Routes>
   <Footer />

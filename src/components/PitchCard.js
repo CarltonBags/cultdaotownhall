@@ -1,17 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import { query, doc, setDoc, deleteDoc, getDoc, addDoc, getDocs, collection, where } from "firebase/firestore";
-import { db } from "./firebaseConfig";
+import React, { useContext } from "react";
 import "./ProposalPage.css";
 import "./PitchPage.css";
-import SubmitPitchComment from "./SubmitPitchComment";
-import PitchComment from "./PitchComment";
-import { useNavigate, useParams } from "react-router-dom";
+
 import "./PitchCard.css";
 import {VoteContext} from "../context/VoteContext";
 
 function PitchCard({ pitch }) {
-  let [upVotes, setUpvotes] = useState(0);
-  let [downVotes, setDownvotes] = useState(0);
+  
   const {votes} = useContext(VoteContext);
 
  /* const fetchUpvoteData = async () => {

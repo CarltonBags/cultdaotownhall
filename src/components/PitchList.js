@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { query, doc, setDoc, deleteDoc, getDoc, addDoc, getDocs, collection, where } from "firebase/firestore";
+import { query, getDocs, collection } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import "./ProposalList.css";
 import PitchCard from "./PitchCard";
@@ -9,10 +9,15 @@ import {VoteContext} from "../context/VoteContext";
 
 
 function PitchList() {
-  let {id}=useParams();
+  /* eslint-disable no-unused-vars */
+
+  let {id} = useParams();
   const navigate = useNavigate();
   const [pitchInfo, setPitchInfo] = useState([]);
+
+  /* eslint-disable no-unused-vars */
   const {votes, setVotes} = useContext(VoteContext)
+  
 
 
 
@@ -24,18 +29,19 @@ function PitchList() {
         const querySnapshot = await getDocs(collection(db, "pitches"));
         const data = querySnapshot.docs.map((doc) => {
           const pitchData = doc.data();
+          console.log(pitchData);
+          
 
           //Do something with the data
-          const logoURL = pitchData.logo
+         /* const logoURL = pitchData.logo
           ? "https://firebasestorage.googleapis.com/v0/b/improving-cult-dao.appspot.com/o/" +
             encodeURIComponent(pitchData.logo) +
             "?alt=media"
-          : null;
+          : null;*/
 
-          return {
+         return {
             id: doc.id,
             ...pitchData,
-            logoURL,
           };
         });
 
@@ -47,9 +53,9 @@ function PitchList() {
     };
 
     fetchPitchData();
-  }, []);
+  },[]);
 
-
+useEffect (() => {
   const fetchVoteData = async () => {
     const q = query(collection(db, "upvotes"));
     const querySnapshot = await getDocs(q);
@@ -80,14 +86,11 @@ function PitchList() {
     // Set the state
     setVotes(votesData);
   }
+  fetchVoteData();
+    /* eslint-disable */
+},[])
+
   
-
-
-useEffect(() => {
-    console.log("fetchVoteData on PitchPage");
-        fetchVoteData();
-  }, []);
-
   
 
   const handlePitchClick = (pitchInfo) => {
@@ -101,7 +104,7 @@ useEffect(() => {
           endorsed by Cult DAO!{" "}
         </h3>
       <div>
-        <h1 className="header">Project Introductions</h1>
+        <h1 className="header">Pitch Table</h1>
       </div>
       <div className="proposal-list">
         {pitchInfo.map((pitch) => (

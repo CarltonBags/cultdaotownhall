@@ -14,7 +14,9 @@ function IntroCard () {
         <div className="cip-container">
             <div className="cip-sub-container">
             <h2 className="cip-header">Pitch Table</h2>
-            <img className="pit-img" src="/pitch.png" />
+            <div className="intro-image">
+            <img className="pit-img" src="/pitch.png" alt="name" />
+            </div>
             <div className="button-container">
                 <div className="enter">
                  <Link to="/pitchList" className="btn btn-dark enter-btn">Explore</Link>
@@ -22,7 +24,10 @@ function IntroCard () {
                 <div className="submit">
                  <Link to="/submitPitch" className="btn btn-danger submit-btn">Pitch</Link>
                 </div>
-            </div>
+                <div className="about">
+                <Link className="about" to="/proposalList/aboutpitch">about</Link>
+                </div>
+            </div >
             </div>
         </div>
 

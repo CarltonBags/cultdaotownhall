@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {db} from "./firebaseConfig";
 import ReactQuill from "react-quill";
-import { getDocs, addDoc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import "./SubmitComment.css";
 import { getAuth } from "firebase/auth";
 
@@ -34,7 +34,7 @@ function SubmitComment ({proposalData, commentUpdate}) {
         const dateString = date.toISOString();
 
         await addDoc(collection(db, "comments"), {
-            id: data.id,
+            id: data.docId,
             time: dateString,
             comment: comment,
             user:auth.currentUser.displayName,
@@ -42,6 +42,7 @@ function SubmitComment ({proposalData, commentUpdate}) {
         });
 
         commentUpdate();
+        setComment("");
     }
 
 

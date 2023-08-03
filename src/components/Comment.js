@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./Comment.css";
 import { updateDoc, doc, addDoc, collection } from "firebase/firestore";
 import {db} from "./firebaseConfig";
+import DOMPurify from "dompurify";
 
 
 import { getAuth } from "firebase/auth";
@@ -88,9 +89,7 @@ const [newReply, setNewReply] = useState("");
         setIsReplying(false);
     }
 
-
-
-
+    let cleanComment = DOMPurify.sanitize(data.comment);
 
     return(
         <div  >
@@ -113,7 +112,7 @@ const [newReply, setNewReply] = useState("");
                     </div>
                     {data.reply && <p className="replying">Reply @{data.user}</p>}
                     <div>
-                        <div className="text" dangerouslySetInnerHTML={{ __html: data.comment }}/>
+                        <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment}}/>
                         <div className="comment-footer">
                             <button onClick={handleEdit} className="archive">edit</button>
                             <button onClick={handleReply} className="archive">reply</button>
@@ -136,7 +135,7 @@ const [newReply, setNewReply] = useState("");
                     </div>
                     {data.reply && <p className="replying">Reply @{data.user}</p>}
                     <div>
-                        <div className="text" dangerouslySetInnerHTML={{ __html: data.comment }}/>
+                        <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment }}/>
                         <div className="comment-footer">
                             <button onClick={handleEdit} className="archive">edit</button>
                             <button onClick={handleReply} className="archive">reply</button>

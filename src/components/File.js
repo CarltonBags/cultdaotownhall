@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Comment from"./Comment.js";
-import { query, doc, getDocs, collection, where } from "firebase/firestore";
+import { query, getDocs, collection, where } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import "./ProposalList.css";
 import "./PitchList.css";
@@ -14,30 +14,33 @@ function File (props) {
     let {id} = useParams();
 
     const location = useLocation();
-    const pitchCommentData = location.state ? location.state.pitchCommentData : props.pitchCommentData;
-
-
+    const commentData = location.state ? location.state.pitchCommentData : props.pitchCommentData;
+    const pitchInfo= location.state ? location.state.pitchData : props.pitchData;
+    console.log(location.state);
+    console.log(props);
+    console.log(pitchInfo);
+    console.log(id);
+    
 
     useEffect (() => {
         console.log("fetchFileData");
 
         const fetchFileData = async () => {
-        const q = query(collection(db, "files"), where("id", "==", parseInt(id)));
+        const q = query(collection(db, "files"), where("pitchId", "==", pitchInfo.id));
         const querySnapshot= await getDocs(q);
         const tempFileData = [];
         querySnapshot.forEach((doc) => {
             tempFileData.push(doc.data());
         });
 
-
-
         setFile(tempFileData);
 
+        console.log(tempFileData);
     }
 
     fetchFileData();
 
-}, [id]);
+}, [pitchInfo.id]);
 
 
 if (!file) {

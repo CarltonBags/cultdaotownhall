@@ -1,21 +1,25 @@
 import { getDocs, addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 import { db } from "./firebaseConfig";
+import { useNavigate } from "react-router-dom";
 import "./SubmitProposal.css";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { getAuth } from "firebase/auth";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+//import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function SubmitPitch() {
   const auth = getAuth();
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [socials, setSocials] = useState("");
   const [investment, setInvestment] = useState("");
-  const [logo, setLogo] = useState(null);
-  const [media, setMedia] = useState("");
+  //const [logo, setLogo] = useState(null);
+  //const [media, setMedia] = useState("");
+  const [deck, setDeck] = useState("");
+
 
  /* const handleLogoChange = async (event) => {
     const selectedLogo = event.target.files[0];
@@ -48,9 +52,13 @@ function SubmitPitch() {
     setSocials(event.target.value);
   };
 
-  const handleMediaChange = (event) => {
-    setMedia(event.target.value);
+  const handleDeckChange = (event) => {
+    setDeck(event.target.value);
   };
+
+  //const handleMediaChange = (event) => {
+  //  setMedia(event.target.value);
+  //};
 
   const postPitch = async (event) => {
     event.preventDefault();
@@ -60,10 +68,10 @@ function SubmitPitch() {
       return;
     }
 
-    let highestId = 0;
-    let logoURL = null;
+    //let highestId = 0;
+    //let logoURL = null;
 
-    if (logo) {
+   /* if (logo) {
       const storage = getStorage();
       const storageRef = ref(storage, "logos/" + logo.name);
       try {
@@ -73,15 +81,15 @@ function SubmitPitch() {
       } catch (error) {
         console.error("Error uploading logo:", error);
       }
-    }
+    }*/
 
-    const querySnapshot = await getDocs(collection(db, "pitches"));
+   /* const querySnapshot = await getDocs(collection(db, "pitches"));
     querySnapshot.forEach((doc) => {
       const data = doc.data();
       if (data.id && data.id > highestId) {
         highestId = data.id;
-      }
-    });
+      }*/
+    //});
 
     const date = new Date();
     const dateString = date.toISOString();
@@ -92,15 +100,16 @@ function SubmitPitch() {
       socials: socials,
       description: description,
       investment: investment,
-      id: highestId + 1,
+      //id: highestId + 1,
       time: dateString,
       user: auth.currentUser.displayName,
-      media: media
+      deck: deck
+      //media: media
     };
 
-    if (logoURL !== null) {
-      pitchData.logo = logoURL;
-    }
+   // if (logoURL !== null) {
+    //  pitchData.logo = logoURL;
+   // }
 
     await addDoc(collection(db, "pitches"), pitchData);
 
@@ -108,8 +117,10 @@ function SubmitPitch() {
     setDescription("");
     setSocials("");
     setInvestment("");
-    setLogo(null);
-    setMedia("");
+    //setLogo(null);
+    setDeck("");
+
+    navigate("/pitchList")
   };
 
   return (
@@ -168,9 +179,9 @@ function SubmitPitch() {
           </label>
           <input
             type="text"
-            name="socials"
-            onChange={handleMediaChange}
-            value={socials}
+            name="deck"
+            onChange={handleDeckChange}
+            value={deck}
           />
         </div>
        {/* <div className="label-container">
