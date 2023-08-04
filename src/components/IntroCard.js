@@ -17,11 +17,13 @@ function IntroCard () {
             <img className="img-fluid" src="/pitch.png" alt="name" />
             </div>
             <div className="sexy container-fluid">
+                <div className="button-container">
                 <div className="enter">
                  <Link to="/pitchList" className="btn btn-dark enter-btn">Explore</Link>
                 </div>
                 <div className="submit">
                  <Link to="/submitPitch" className="btn btn-danger submit-btn">Pitch</Link>
+                </div>
                 </div>
                 <div className="about">
                 <Link className="about" to="/proposalList/aboutpitch">about</Link>

@@ -192,7 +192,7 @@ function PitchPage (props) {
 
     
     return (
-        <div className="container">
+        <div className="p-container">
             <div className="sub-container">
                 <h1 className="headline">- {name} -</h1>
                 <p className="pitch-header">Submitted by: {user}</p>

@@ -184,7 +184,7 @@ function ProposalPage () {
     }
 
     return (
-        <div className="container">
+        <div className="p-container">
             <div>
             <div className="sub-container">
                 <h1 className="headline">- CIM-{proposalData.id} -</h1>

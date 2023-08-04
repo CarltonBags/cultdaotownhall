@@ -1,5 +1,7 @@
-.container {
+.p-container {
     text-align: center;
+    width: 90%;
+    margin:auto;
 }
 
 .sub-container {

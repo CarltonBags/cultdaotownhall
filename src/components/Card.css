@@ -5,6 +5,7 @@
 }
 
 .container {
+    width: 50%;
     position:relative;
     border: 2px solid black;
     border-radius: 5px;
