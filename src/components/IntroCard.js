@@ -11,13 +11,12 @@ function IntroCard () {
 
 
     return (
-        <div className="cip-container">
-            <div className="cip-sub-container">
+        <div className="container">
             <h2 className="cip-header">Pitch Table</h2>
             <div className="intro-image">
-            <img className="pit-img" src="/pitch.png" alt="name" />
+            <img className="img-fluid" src="/pitch.png" alt="name" />
             </div>
-            <div className="button-container">
+            <div className="sexy container-fluid">
                 <div className="enter">
                  <Link to="/pitchList" className="btn btn-dark enter-btn">Explore</Link>
                 </div>
@@ -27,8 +26,7 @@ function IntroCard () {
                 <div className="about">
                 <Link className="about" to="/proposalList/aboutpitch">about</Link>
                 </div>
-            </div >
-            </div>
+                </div>
         </div>
 
     );

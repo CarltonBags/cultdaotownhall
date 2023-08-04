@@ -6,6 +6,12 @@
     white-space:nowrap;
 }
 
+@media screen and (max-width:768px){
+    .user-display{
+        font-size: 1rem;
+    }
+}
+
 .form-inline {
     display: flex;
     flex-wrap: nowrap;

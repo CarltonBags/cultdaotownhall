@@ -14,10 +14,10 @@ function LandingPage () {
         <div>
             <h1 className="header">- Cult DAO Town Hall -</h1>
             <div className="cip">
-                    <CipCard />
-                    <IntroCard />
+                <CipCard />
+                <IntroCard />
+
             </div>
-            
         </div>
     );
 }

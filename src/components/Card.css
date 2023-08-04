@@ -1,0 +1,15 @@
+.cip-img {
+    width:70%;
+    display: block;
+    margin:auto;
+}
+
+.container {
+    position:relative;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 1%;
+    padding:2%;
+}
+
+

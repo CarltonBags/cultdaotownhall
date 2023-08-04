@@ -64,10 +64,10 @@ const handleButtonClick = () => {
               <button onClick={handleLogout} type="button" className="btn btn-danger logout-button">Logout</button>
             </>
           ) : (
-            <>
+            < div className="container-fluid">
               <Link to="/login" className="btn btn-dark login-button">Login</Link>
               <Link to="/register" className="btn btn-danger signup-button">Sign up</Link>
-            </>
+            </div>
           )}
           </form>
       </div>
