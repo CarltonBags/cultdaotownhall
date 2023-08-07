@@ -49,7 +49,7 @@ const handleButtonClick = () => {
 
 <nav className="navbar navbar-expand-lg nav-style">
   <a onClick={handleButtonClick} className="navbar-brand navbar-image" href={"/"}>
-    <img src="/townhall.png" alt="img" width="auto" height="80"/>
+    <img src="/townhall1.png" alt="img" width="auto" height="80"/>
   </a>
   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
