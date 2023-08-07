@@ -1,16 +1,18 @@
 .archive{
     font-size: 0.8rem;
     font-family: Special Elite;
-    color:black;
-    background-color: white;
+    color:whitesmoke;
+    background-color: black;
     border-radius: 5px;
-    border:1px solid black;
+    border:1px solid whitesmoke;
     margin:2px;
+
 }
 
 .comment-footer {
 border-top:1px solid black;
 text-align:right;
+
 }
 
 .replying{
@@ -19,5 +21,11 @@ text-align:right;
     font-size: 0.8rem;
     font-style:italic;
     margin-left:2px;
+    color:whitesmoke;
 
+}
+
+.text{
+    font-size: 0.8rem;
+    color: whitesmoke;
 }

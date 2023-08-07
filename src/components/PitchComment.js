@@ -112,7 +112,8 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
             user:auth.currentUser.displayName,
             userId: auth.currentUser.uid,
             reply: isReply,
-            originuser: commentData.user
+            originuser: commentData.user,
+            origincomment: commentData.comment
         });
 
         setIsReplying(false);
@@ -126,6 +127,7 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
 
     let cleanComment = DOMPurify.sanitize(commentData.comment);
     let cleanUser = DOMPurify.sanitize(commentData.originuser);
+    let cleanOriginComment = DOMPurify.sanitize(commentData.origincomment);
 
 
     return (
@@ -171,7 +173,7 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
                         <span className="username">{commentData.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {commentData.reply && <p className="replying">Reply @{cleanUser}</p>}
+                    {commentData.reply && <p className="replying">Reply @{cleanUser} {cleanOriginComment.slice(0, 30)}</p>}
                     <div>
                         <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment }}/>
                         <div className="comment-footer">

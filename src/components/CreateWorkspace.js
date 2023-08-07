@@ -42,7 +42,7 @@ function SubmitPitch() {
     setName(event.target.value);
   };
 
-  const handleDescriptionChange = (value) => {
+  const handleAgendaChange = (value) => {
     setDescription(value);
   };
 
@@ -128,14 +128,13 @@ function SubmitPitch() {
   };
 
   return (
-    <div className="pr-container">
+    <div className="proposal-container">
       <ToastContainer />
-      <h1 className="proposal-headline">Submit Your Project</h1>
+      <h1 className="proposal-headline">Create your SubDAO Workspace</h1>
       <form onSubmit={postPitch}>
         <div className="label-container">
-          <label className="sub-head">- What is the Name of your Project? -</label>
+          <label className="sub-head">- What is the Name of your Pro? -</label>
           <input
-            className="pr-input"
             type="text"
             name="project-name"
             onChange={handleNameChange}
@@ -147,7 +146,6 @@ function SubmitPitch() {
             - Please share the Social Handles of your Project as well as Yours -
           </label>
           <input
-          className="pr-input"
             type="text"
             name="socials"
             onChange={handleSocialChange}
@@ -162,7 +160,7 @@ function SubmitPitch() {
               type="text"
               name="description"
               value={description}
-              onChange={handleDescriptionChange}
+              onChange={handleAgendaChange}
             />
           </div>
         </div>
@@ -185,7 +183,6 @@ function SubmitPitch() {
             - Do you have a Pitch Deck? Please share the URL -
           </label>
           <input
-          className="pr-input"
             type="text"
             name="deck"
             onChange={handleDeckChange}
@@ -200,7 +197,7 @@ function SubmitPitch() {
             onChange={handleLogoChange}
           />
   </div>*/}
-        <input className="btn btn-danger submit-pitch" type="submit" value="Submit" />
+        <input className="btn btn-dark submit-pitch" type="submit" value="Submit" />
       </form>
     </div>
   );

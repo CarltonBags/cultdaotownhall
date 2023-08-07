@@ -1,15 +1,24 @@
-.p-container {
-    text-align: center;
-    width: 90%;
-    margin:auto;
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color:#313131;
 }
 
-.sub-container {
+
+.pro-container {
+    text-align: center;
+    width: 100%;
+    background-color:#313131;
+    color: whitesmoke;
+    padding-top:30px;
+}
+
+.pr-sub-container {
     border: 3px solid black;
-    width:80%;
+    width:90%;
     margin: auto;
     margin-bottom:50px;
-    margin-top:30px;
+    margin-top:0px;
     border-radius:5px;
 }
 
@@ -35,9 +44,11 @@
 .description {
     font-family: Special Elite;
     text-align:left;
-    width: 90%;
-    margin:auto;
-    padding-top:50px;
+    width: 80%;
+    padding-left:10px;
+    padding-top:20px;
+    font-size:0.9rem;
+    color:whitesmoke;
 }
 
 .comment {
@@ -52,6 +63,7 @@
     font-family: Benguiat;
     padding-top:10px;
     margin-top: 30px;
+    color:whitesmoke;
 }
 
 .revoloading{
@@ -74,9 +86,10 @@
 
 .amendment-buttons {
     margin: 5px;
+    border:1px solid whitesmoke;
     border-radius: 5px;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: whitesmoke;
 
 }
 
@@ -91,11 +104,19 @@
     min-width: 100%;
     margin:auto;
     margin-top: -10px;
+    background-color:#313131;
+    color:whitesmoke;
     border-bottom: 3px solid black;
     border-radius:0px;
 }
 
 .snap {
     padding: 5px;
-    border: 2px solid black;
+}
+
+@media (max-width: 900px){
+    .sub-headline{
+        font-size:1.2rem;
+    }
+
 }

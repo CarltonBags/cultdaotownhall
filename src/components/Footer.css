@@ -1,16 +1,18 @@
 .footer-container{
-    margin-top: 200px;
-    margin-bottom:50px;
+    padding-top: 200px;
+    padding-bottom:50px;
     font-family: Benguiat;
+    color: whitesmoke;
     text-align: center;
+    background-color: #313131;
 }
 
 .twitter-logo {
     margin-right:10px;
-    color:black;
+    color:whitesmoke;
 }
 
 .website-logo { 
-    color:black;
+    color:whitesmoke;
 
 }

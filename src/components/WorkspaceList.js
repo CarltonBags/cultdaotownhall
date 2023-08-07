@@ -4,6 +4,7 @@ import {db} from "./firebaseConfig";
 import ProposalCard from "./ProposalCard";
 import "./ProposalList.css";
 import { useNavigate} from "react-router-dom";
+import WorkspaceCard from "./WorkspaceCard";
 
 
 
@@ -14,8 +15,7 @@ function ProposalList () {
     const [proposalInfo, setProposalInfo] = useState ([]);
 
 
-useEffect (()=> {
-    console.log("ProposalList rendering")
+/*useEffect (()=> {
 
     const fetchProposalData = async () => {
         // fetch the documents in the collection
@@ -43,21 +43,22 @@ useEffect (()=> {
     if (!proposalInfo) {
         return (<div> Revoloading...</div>)
     }
-
+*/
     const handleClick = (proposalInfo) => {
         navigate(`/proposalList/proposalPage/${proposalInfo.docId}` ,{ state: { proposalInfo} })
         }
 
     return (
         <div>
-        <div><h1 className="pl-header">- Cult DAO Improvement Motions -</h1></div>
-        <div className="proposal-list" >
+        <div><h1 className="pl-header">SubDAO Workspaces</h1></div>
+        <WorkspaceCard />
+        {/*<div className="proposal-list" >
             {proposalInfo.map((proposal) => (
         <div key={proposal.docId} onClick={() => handleClick(proposal)}>
             <ProposalCard proposal={proposal}/>
          </div>
-         ))}  
-        </div>
+            ))}  
+        </div>*/}
         </div>
         
 

@@ -1,11 +1,12 @@
-.proposal-container {
+.pr-container {
     margin: auto;
-    width: 50%;
     padding: 30px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color:#313131;
+    color: whitesmoke;
 }
 
 .proposal-headline {
@@ -22,13 +23,13 @@
 }
 
 .label-container input[type="text"] {
-    width: 750px;
+    min-width:100%;
     margin-top: 10px;
     margin-bottom: 40px; /* Add space after input fields */
 }
 
 .label-container .quill {
-    width: 750px;
+    min-width:100%;
     margin-top: 0px; /* adjust as needed */
     margin-bottom: 20px; /* adjust as needed */
 }
@@ -50,7 +51,18 @@ input[type="submit"] {
 }
 
 .quill-wrapper {
-    width: 750px;
+    width:600px;
     margin-top: -25px; /* try negative margin to decrease space */
     margin-bottom: 20px; /* adjust as needed */
+}
+
+.pr-input{
+    background-color: #313131;
+    border:1px solid whitesmoke;
+}
+
+@media (max-width:619px){
+    .quill-wrapper{
+        width: 90%;
+    }
 }

@@ -13,4 +13,12 @@
     padding:2%;
 }
 
+.button-container {
+    text-align: center;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.card-style{
+    background-color: #313131;
+}
 

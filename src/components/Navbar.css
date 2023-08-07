@@ -1,20 +1,8 @@
 .userdisplay {
     font-family: Benguiat;
-    margin:auto;
     margin-right:9px;
     font-size: 1.2rem;
-    white-space:nowrap;
-}
-
-@media screen and (max-width:768px){
-    .user-display{
-        font-size: 1rem;
-    }
-}
-
-.form-inline {
-    display: flex;
-    flex-wrap: nowrap;
+    color:whitesmoke;
 }
 
 .login-button {
@@ -33,10 +21,30 @@
 }
 
 .dune{
-    margin: auto;
-    text-align: center;
     font-family: Benguiat;
-    color: black;
-    display:inline-block;
+    color: whitesmoke;
     text-decoration: none;
 }
+
+.nav-style{
+    background-color:#313131;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .center-nav {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .navbar-image{
+    padding:5px;
+  }

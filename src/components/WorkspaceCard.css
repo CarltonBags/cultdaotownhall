@@ -2,20 +2,18 @@
     display: flex; /* Add this line */
     flex-direction: column; /* Add this line */
     text-align: center;
-    color:whitesmoke;
-    background-color:#525252;
     border: 1px solid black; /* Add solid border */
     width: 200px;
     height: 200px;
     border-radius: 5px;
-    margin:0px; /* Add margin for spacing */
+    margin: 0 10px; /* Add margin for spacing */
     padding: 10px; /* Add padding for content spacing */
     box-sizing: border-box; /* Include border and padding in width and height */
     overflow: hidden;
 }
 
-.p-card-container:hover {
-    background-color: #9c7e7e;
+.card-container:hover {
+    background-color: #ffe6e6;
 }
 
 .proposal-id {
@@ -32,4 +30,9 @@
 
 .proposal-submitter-container{
     margin-top: auto; /* Add this line to push the submitter to the bottom */
+}
+
+.add{
+    font-family: Special Elite;
+    font-size: 4rem;;
 }

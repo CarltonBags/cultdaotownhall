@@ -42,7 +42,7 @@ function PitchCard({ pitch }) {
   */
 
   return (
-    <div className="card-container">
+    <div className="hard-container">
       <h3 className="project-name">{pitch.name}</h3>
       <div className="votes-container">
         <div className="card-vote">Up: {votes[pitch.id] ? votes[pitch.id].upvotes : 0}</div>

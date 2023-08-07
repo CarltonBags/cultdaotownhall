@@ -47,6 +47,7 @@
     margin:auto;
     text-align: justify;
     font-family: "Special Elite";
+    color: whitesmoke;
 
   }
 
@@ -64,7 +65,7 @@
   .about{
     display: block;
     text-align:center;
-    color:black;
+    color:whitesmoke;;
     font-family: Special Elite;
 }
   

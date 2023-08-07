@@ -60,23 +60,24 @@ function SubmitProposal () {
         setTitle("");
         setDescription("");
 
-        navigate("/");
+        navigate("/proposalList");
     }
 
     return (
-        <div className="proposal-container">
+        <div className="pr-container">
             <h1 className="proposal-headline">Submit Motion</h1>
             <form onSubmit={postData}>
                 <div className="label-container">
                     <label className="sub-head">- Title -</label>
                     <input
+                        className="pr-input"
                         type="text"
                         name="Title"
                         onChange={handleTitleChange}
                         value={title}
                     />
                 </div>
-                <div className="label-container">
+                <div className="label-container col-md-6">
                     <label className="sub-head">- Description -</label>
                     <div className="quill-wrapper">
                     <ReactQuill
@@ -88,7 +89,7 @@ function SubmitProposal () {
                     />
                     </div>
                 </div>
-                <input className="btn btn-dark" type="submit" value="Submit"/>
+                <input className="btn btn-danger" type="submit" value="Submit"/>
             </form>
         </div>
     );

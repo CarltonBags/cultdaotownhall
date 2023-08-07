@@ -18,7 +18,7 @@ function Workspace() {
                 </div>
             <div className="button-container button-container-cip">
                 <div className="enter">
-                    <Link to="/proposalList" className="btn btn-dark enter-btn">Explore</Link>
+                    <Link to="/workspaceList" className="btn btn-dark enter-btn">Explore</Link>
                 </div>
                 <div className="submit">
                      <Link to="/submit" className="btn btn-danger submit-btn">Submit</Link>

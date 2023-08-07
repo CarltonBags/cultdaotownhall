@@ -1,65 +1,23 @@
-.header{
-    font-family: Benguiat;
-    text-align: center;
-    font-size: 5rem;
-    font-weight: bold;
-    padding-top:40px;
+.main{
+   background-color: #313131;
+   color:whitesmoke;
+   font-family: Benguiat; 
 }
 
-.headerimg{
-    display: block;
+.cip{
+    background-color:#313131;
+}
+
+.lp-header{
+width:90%;
+margin:auto;
+text-align:center;
+
+}
+
+.card-img-top{
+    width:250px;
+    display: block;   /* Convert image to block level element */
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
 }
-
-.cip {
-    display: flex;
-    flex-direction: column;
-    margin:auto;
-    margin-top:50px;
-    width:80%;
-}
-
-
-
-@media screen and (max-width:576px){
-    .header{
-        font-size: 3rem;
-    }
-}
-
-
-@media screen and (max-width:768px){
-    .header{
-        font-size: 3rem;
-    
-    }
-    .cip {
-        flex-direction: column;
-    }
-}
-
-@media screen and (min-width: 1100px) {
-    .cip {
-        flex-direction: row;
-    }
-    
-}
-
-@media screen and (max-width: 1100px) {
-    .cip {
-        flex-direction: column;
-    }  
-    .header{
-        font-size: 3rem;
-    }
-}
-
-
-.imp-header {
-    margin-top: 10px;
-    text-align: center;
-    font-family: Benguiat;
-}
-

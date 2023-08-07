@@ -184,9 +184,9 @@ function ProposalPage () {
     }
 
     return (
-        <div className="p-container">
+        <div className="pro-container">
             <div>
-            <div className="sub-container">
+            <div className="pr-sub-container">
                 <h1 className="headline">- CIM-{proposalData.id} -</h1>
                 <h1 className="sub-headline">{title}</h1>
                 {editProposal ? 

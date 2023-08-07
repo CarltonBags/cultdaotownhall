@@ -44,19 +44,62 @@ const handleButtonClick = () => {
 
 
   return (
-    <nav className="navbar bg-body-primary">
-      <div className="container-fluid">
+
+<nav className="navbar navbar-expand-lg nav-style">
+  <a onClick={handleButtonClick} className="navbar-brand navbar-image" href={"/"}>
+    <img src="/townhall.png" alt="img" width="auto" height="80"/>
+  </a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
+    <ul className="navbar-nav ml-auto center-nav">
+      <li className="nav-item">
+        <a className="nav-link dune" href="https://cultdao.io/manifesto.pdf">Docs</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link dune" href="https://dune.com/cultdaoio/cult-dao">Stats</a>
+      </li>
+    </ul>
+    <div className="form-container">
+      <form className="form-inline my-2 my-lg-0" role="search">
+        {user ? (
+          <>
+            <span className="userdisplay  mr-sm-2">{user.displayName}</span>
+            <button onClick={handleLogout} type="button" className="btn btn-danger logout-button  mr-sm-2">Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="btn btn-dark login-button">Login</Link>
+            <Link to="/register" className="btn btn-danger signup-button">Sign up</Link>
+          </>
+        )}
+      </form>
+    </div>
+  </div>
+</nav>
+
+    /*
+    <nav className="navbar-expand-lg nav-style">
           <a onClick= {handleButtonClick} className="navbar-brand" href={"/"} >
               <img src="/townhall.png" alt="img" width="auto" height="100"/>
           </a>
-          <div>
-          <ul className="dune">
-          <a className="dune" href="https://dune.com/cultdaoio/cult-dao" >Stats</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto dune">
+              <li className="nav-item">
+                  <a className="dune" href="https://dune.com/cultdaoio/cult-dao" >Stats</a>
+              </li>
+               <li className="dune">
+                 <a className="dune" href="https://cultdao.io/manifesto.pdf" >Docs</a>
+               </li>
           </ul>
-          <ul className="dune">
-          <a className="dune" href="https://cultdao.io/manifesto.pdf" >Docs</a>
-          </ul>
-          </div>
+         
+          
+          
           <form className="form-inline" role="search">
           {user ? (
             <>
@@ -70,8 +113,8 @@ const handleButtonClick = () => {
             </div>
           )}
           </form>
-      </div>
-    </nav>
+          </div>
+    </nav>*/
   );
   
 

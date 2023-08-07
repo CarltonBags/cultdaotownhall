@@ -1,4 +1,4 @@
-.card-container {
+.hard-container {
     
     display: flex; /* Add this */
     flex-direction: column; /* Add this */
@@ -11,17 +11,16 @@
     margin: 0 10px; /* Add margin for spacing */
     padding: 10px; /* Add padding for content spacing */
     box-sizing: border-box; /* Include border and padding in width and height */
-    overflow:hidden;
+    background-color:#515151;
+    color: whitesmoke;
+    overflow: hidden;
 }
 
-  .card-container:hover {
-    background-color: #ffe6e6;
-}
-  
 
 .project-name {
     font-family: Benguiat;
     border-radius:5px;
+    font-size: 1.1rem;
 }
 
 .proposal-logo{
@@ -40,4 +39,8 @@
 }
 .card-vote {
     font-family: Special Elite;
+}
+
+.hard-container :hover{
+    background-color:#313131;
 }

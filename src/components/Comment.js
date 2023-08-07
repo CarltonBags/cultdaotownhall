@@ -21,6 +21,26 @@ const [newReply, setNewReply] = useState("");
     const formattedMinutes = ("0" + date.getMinutes()).slice(-2); // ensures that minutes are always two digits
     const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}, ${date.getHours()}:${formattedMinutes}`;
 
+    
+    
+
+
+   /*
+    const handleCheckDelete = () => {
+
+        if(commentData.userId === auth.currentUser.uid){
+            setIsDeleting(true)
+
+        } else{
+            alert("you can only delete comments you have posted yourself")
+        }
+    }
+*/
+
+
+
+
+
     const handleEdit = () => {
         console.log("handleEdit is rendering");
 
@@ -35,6 +55,9 @@ const [newReply, setNewReply] = useState("");
             alert("you can only edit comments you have posted yourself")
         }
     }
+
+
+
 
     const handleEditSubmit = async () => {
         console.log("handleEditSubmit running");
@@ -77,7 +100,8 @@ const [newReply, setNewReply] = useState("");
             user:auth.currentUser.displayName,
             userId: auth.currentUser.uid,
             reply: isReply,
-            originuser:data.user
+            originuser:data.user,
+            origincomment: data.comment
         });
 
         setIsReplying(false);
@@ -110,7 +134,7 @@ const [newReply, setNewReply] = useState("");
                         <span className="username">{data.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {data.reply && <p className="replying">Reply @{data.user}</p>}
+                    {data.reply && <p className="replying">Reply @{data.user} {cleanComment.slice(0, 30) + "..."}</p>}
                     <div>
                         <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment}}/>
                         <div className="comment-footer">
@@ -133,12 +157,13 @@ const [newReply, setNewReply] = useState("");
                         <span className="username">{data.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {data.reply && <p className="replying">Reply @{data.user}</p>}
+                    {data.reply && <p className="replying">Reply @{data.originuser} {data.origincomment.slice(0, 30)} ...</p>}
                     <div>
                         <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment }}/>
                         <div className="comment-footer">
                             <button onClick={handleEdit} className="archive">edit</button>
                             <button onClick={handleReply} className="archive">reply</button>
+                            {/*<button onClick={handleCheckDelete} className="archive">delete</button>*/}
                         </div>
                     </div>
                 </div>

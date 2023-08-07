@@ -19,7 +19,7 @@
     padding-top:10px;
     margin-bottom:0px;
     background-color:black;
-    color:white;
+    color:whitesmoke;
 }
 
 .project-description {
@@ -28,6 +28,7 @@
     width: 90%;
     margin:auto;
     padding-top:0px;
+    color:whitesmoke;
 }
 
 .comment {
@@ -38,10 +39,12 @@
 }
 
 .pitch-header{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-family: Benguiat;
     padding-top:30px;
     padding-bottom:30px;
+    color:whitesmoke;
+
 }
 
 .project-socials {
@@ -50,6 +53,7 @@
     width: 90%;
     margin:auto;
     padding-bottom:10px;
+    color:whitesmoke;
 }
 
 .file-icon{
@@ -74,6 +78,8 @@
 
 .vote-header {
     font-family: Special Elite;
+        color: whitesmoke;
+
 }
 
 

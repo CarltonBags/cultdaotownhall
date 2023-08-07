@@ -10,6 +10,9 @@ import { getAuth } from "firebase/auth";
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import {VoteContext} from "../context/VoteContext";
 import DOMPurify from "dompurify";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -128,6 +131,7 @@ function PitchPage (props) {
         }
 
         /*setVotes({...votes});*/
+        toast.success("Thank you for voting!");
 
     }
 
@@ -174,7 +178,8 @@ function PitchPage (props) {
         }
 
        /* setVotes({...votes});*/
-    
+       toast.success("Thank you for voting!");
+
     }
    
 
@@ -194,6 +199,7 @@ function PitchPage (props) {
     return (
         <div className="p-container">
             <div className="sub-container">
+                <ToastContainer />
                 <h1 className="headline">- {name} -</h1>
                 <p className="pitch-header">Submitted by: {user}</p>
                 <h3 className="pitch-header">- Project Description -</h3>

@@ -1,37 +1,8 @@
-.cip-container {
-    flex:1;
-    height: 400px; /* for example */
-    border: 3px solid black;
-    border-radius: 7px;
-    margin:40px;
-}
-
-.sexy {
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-    /* other styles... */
-}
-
-
-
-@media screen and (max-width: 768px){
-    .cip-container{
-        height: 300px;
-    }
-
-}
-
-
-@media screen and (min-width: 1100px){
-    .cip-container{
-        height: 500px;
-    }
-}
-
 .cip-header {
     font-family: Benguiat;
     text-align:center;
+    font-size: 2em;
+    margin-top: 20px;;
 }
 
 .button-container {
@@ -42,41 +13,47 @@
 .enter {
     display: inline-block;
     margin: auto;
-    margin-right:5%;
-    margin-bottom:1%;
-    min-width: 80px;
+    width:50%;
+    padding:1%;
 }
 
 .submit{
     display: inline-block;
     margin: auto;
-    min-width: 80px;
+    width:50%;
+    padding:1%;
 }
 
 .enter-btn {
     width:100%;
     font-family: Benguiat;
-    min-width: 80px;
+    margin:auto;
 }
 
 .submit-btn {
     width:100%;
     font-family: Benguiat;
-    min-width: 80px;
+    margin:auto;
 }
 
 
 .about {
     display: block;
     text-align: center;
-    color: black;
+    color: whitesmoke;
     font-family: Special Elite;
 }
 
 .about-box{
     display:block;
+    color:whitesmoke;
+
 }
 
-.button-box{
-    display:block;
+.card-style{ 
+   background-color: #414141;
+   color: whitesmoke;
+   border: 1px solid whitesmoke;
+   border-radius:5px;
+   margin:1%
 }

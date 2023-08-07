@@ -1,3 +1,5 @@
+
+
 .quill .ql-editor {
     min-height: 100px; /* adjust as needed */
 }
@@ -9,11 +11,56 @@
 input[type="submit"] {
     margin-top: 5px; /* Add space before submit button */
     margin-bottom: 20px;
-    width: 120px; /* Set the width of the submit button */
+    width: 100px; /* Set the width of the submit button */
 
 }
 
 .edit{
     margin-left:5px;
     min-width:60px;
+    background-color:black;
 }
+
+/* Parent container for mobile input and button */
+.mobile-comment-container {
+    display: flex;                 /* Turns on flexbox */
+    justify-content: space-between; /* Space out children */
+    align-items: center;           /* Vertically align children in the center */
+    position: fixed;               /* Fix position */
+    bottom: 0;                     /* Stick to bottom */
+    left: 0;                       /* Stick to left */
+    right: 0;                      /* Stretch to right */
+    padding: 5px 10px;             /* Some padding around */
+    background-color:#313131; 
+}
+
+/* Modify the styles for the mobile input and button */
+.comment-mobile {
+    width: calc(80% - 40px); /* 80% minus button width and some margin */
+    padding: 10px;
+    border: 1px solid #ccc;
+    flex-grow: 1;    
+    background-color:#313131; 
+    color: whitesmoke;      /* So the container has a solid background */
+    /* Let the input grow and occupy space */
+}
+
+.btn-submit-mobile {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 30px;  /* Adjust accordingly */
+    height: 30px; /* Adjust accordingly */
+    margin-left: 10px; /* Space between input and button */
+    font-size:2rem;
+}
+
+
+/* Clear default button styles for the mobile button */
+.btn-submit-mobile:focus {
+    outline: none;
+}
+

@@ -104,7 +104,7 @@ useEffect (() => {
           endorsed by Cult DAO!{" "}
         </h3>
       <div>
-        <h1 className="header">Pitch Table</h1>
+        <h1 className="pitch-table-header">Pitch Table</h1>
       </div>
       <div className="proposal-list">
         {pitchInfo.map((pitch) => (
