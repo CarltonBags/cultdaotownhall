@@ -59,6 +59,11 @@ input[type="submit"] {
 .pr-input{
     background-color: #313131;
     border:1px solid whitesmoke;
+    color:whitesmoke;
+}
+
+.description{
+    color:whitesmoke;
 }
 
 @media (max-width:619px){
