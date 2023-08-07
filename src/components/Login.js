@@ -64,24 +64,29 @@ function Login () {
     return (
 
 
-        <div className="main-container">
+        <div className="main-log-container">
             <h2 className="login-header">Please, come in</h2>
             <div className="login-form">
                 <h3 className="email">E-mail</h3>
             <form  onSubmit={handleLogin}>
-                <div className="input-container">
+                <div className="mail-input-container">
+                <div>
                 <input
                 type="email"
                 value={email}
                 onChange= {(e) => setEmail(e.target.value)}
                 placeholder= "E-mail"
                 />
+                </div>
+                <div>
                 <input
                 type="password"
                 value={password}
                 onChange= {(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 />
+                </div>
+
                 <div className="button-container">
                 <button className="btn btn-dark login-button-style" type="submit"> Submit</button>
                 </div>

@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 40%;
+    width: 60%;
     margin:auto;
     margin-bottom: 0px;
     border: 3px solid black;
@@ -35,4 +35,14 @@
     gap:10px;
     padding:25px;
 
+}
+
+@media (max-width:725px){
+    .register-container{
+        width:90%
+    }
+
+    .r-container{
+        width:80%
+    }
 }

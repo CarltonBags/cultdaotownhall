@@ -1,5 +1,5 @@
-.main-container{
-    width:50%;
+.main-log-container{
+    width:60%;
     margin: auto;
     text-align: center;
     padding-top:50px;
@@ -13,13 +13,17 @@
     padding-bottom: 80px;
 }
 
-.input-container {
+.mail-input-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 60%;
-    margin:auto;
     margin-bottom: 0px;
+    margin:auto;
+    margin: auto;  /* This will center the container itself */
+    justify-content: center; /* This will center its children vertically */
+    align-items: center; 
+    
 }
 
 .email {
@@ -59,3 +63,16 @@
     width: 100%;
 }
 
+@media (max-width: 900px){
+    .main-log-container{
+       width: 90%;
+    }
+
+    .login-form{
+        width:80%
+    }
+
+    .login-header{
+        font-size:2rem;
+    }
+}
