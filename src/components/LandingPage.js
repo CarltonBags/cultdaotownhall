@@ -15,7 +15,7 @@ function LandingPage () {
 
     <div className="main">
         <div className="lp-header">
-            <h1>- Cult DAO Town Hall -</h1>
+            <h1 className="lp-header">- Cult DAO Town Hall -</h1>
         </div>
         <div className="cip">
             <div className="row justify-content-around">

@@ -3,6 +3,7 @@
     margin: auto;
     text-align: center;
     padding-top:50px;
+    color: whitesmoke;
     
 }
 
@@ -55,6 +56,6 @@
 }
 
 .login-button-style {
-    width: 150px;
+    width: 100%;
 }
 

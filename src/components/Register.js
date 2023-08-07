@@ -70,7 +70,7 @@ function Register() {
                 />
                 
                 <div className="register-button-container">
-                <button className="btn btn-dark" type="submit">Sign up</button>
+                <button className="btn btn-danger" type="submit">Sign up</button>
                 </div>
                 </div>
                 </div>

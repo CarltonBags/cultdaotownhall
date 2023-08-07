@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import "./Navbar.css";
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 
 
@@ -49,7 +51,7 @@ const handleButtonClick = () => {
   <a onClick={handleButtonClick} className="navbar-brand navbar-image" href={"/"}>
     <img src="/townhall.png" alt="img" width="auto" height="80"/>
   </a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
   <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
@@ -65,7 +67,6 @@ const handleButtonClick = () => {
       <form className="form-inline my-2 my-lg-0" role="search">
         {user ? (
           <>
-            <span className="userdisplay  mr-sm-2">{user.displayName}</span>
             <button onClick={handleLogout} type="button" className="btn btn-danger logout-button  mr-sm-2">Logout</button>
           </>
         ) : (
