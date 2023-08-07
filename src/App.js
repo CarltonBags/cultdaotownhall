@@ -15,7 +15,7 @@ import File from "./components/File";
 import {VoteProvider} from "./context/VoteContext";
 import About from "./components/About";
 import AboutPitch from "./components/AboutPitch";
-import WorkspaceList from "./components/WorkspaceList";
+//import WorkspaceList from "./components/WorkspaceList";
 
 
 
@@ -42,7 +42,6 @@ function App() {
     <Route path="/pitchList" element={<PitchList />} />
     <Route path="/pitchList/pitchPage/:docId" element={<PitchPage />} />
     <Route path="/pitchList/pitchPage/:docId/file" element={<File />} />
-    <Route path="/workspaceList" element={<WorkspaceList />} />
   </Routes>
   <Footer />
 </Router>
