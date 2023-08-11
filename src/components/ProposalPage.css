@@ -20,6 +20,7 @@ body, html {
     margin-bottom:50px;
     margin-top:0px;
     border-radius:5px;
+    max-width:1000px;
 }
 
 .headline {
@@ -33,6 +34,17 @@ body, html {
 
 .sub-headline {
     font-size: 2rem;
+    font-family: Benguiat;
+    padding-top:10px;
+    padding-bottom: 10px;
+    background-color:black;
+    color:white;
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+.author-headline {
+    font-size: 1.2rem;
     font-family: Benguiat;
     padding-top:10px;
     padding-bottom: 10px;

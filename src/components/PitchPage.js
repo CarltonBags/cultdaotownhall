@@ -12,6 +12,8 @@ import {VoteContext} from "../context/VoteContext";
 import DOMPurify from "dompurify";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFolder } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -197,10 +199,10 @@ function PitchPage (props) {
 
     
     return (
-        <div className="p-container">
+        <div className="pitch-container">
             <div className="sub-container">
                 <ToastContainer />
-                <h1 className="headline">- {name} -</h1>
+                <h1 className="pitch-headline">- {name} -</h1>
                 <p className="pitch-header">Submitted by: {user}</p>
                 <h3 className="pitch-header">- Project Description -</h3>
                 <div className="project-description" dangerouslySetInnerHTML={{ __html: cleanDescription}} />
@@ -211,10 +213,12 @@ function PitchPage (props) {
             </div>
         
             <div className="vote-header">Vote:</div>
-            <button className="btn btn-dark down" onClick={castUpvote}><FaArrowUp /></button>
-            <button className= "btn btn-dark down" onClick={castDownvote}><FaArrowDown /></button>
+            <div className="vote-arrows">
+                <button className="btn btn-dark down" onClick={castUpvote}><FaArrowUp /></button>
+                <button className= "btn btn-dark down" onClick={castDownvote}><FaArrowDown /></button>
+            </div>
                 <div className="file-icon">
-                    <button className= "btn btn-danger" onClick={handleFileClick}>File</button>
+                    <button className= "btn btn-dark" onClick={handleFileClick}><FontAwesomeIcon icon={faFolder} style={{color: "#eb1e1e"}} /></button>
                 </div>
                 <h1 className="discussion-headline">- Discussion -</h1>
                 {pitchCommentData.map((commentData) => (<div key={commentData.docId}><PitchComment pitchInfo={pitchInfo} pitchCommentData={pitchCommentData} triggerUpdate={triggerUpdate} commentData={commentData}/> </div>))}

@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import "./Comment.css";
-import { updateDoc, doc, addDoc, collection } from "firebase/firestore";
+import { updateDoc, doc, addDoc, collection, deleteDoc } from "firebase/firestore";
 import {db} from "./firebaseConfig";
 import DOMPurify from "dompurify";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import { getAuth } from "firebase/auth";
@@ -25,18 +27,23 @@ const [newReply, setNewReply] = useState("");
     
 
 
-   /*
-    const handleCheckDelete = () => {
+    const handleDelete = () => {
+        if (auth.currentUser.uid === commentData.userId){
+            const docRef = doc(db, 'comments', commentData.docId);
 
-        if(commentData.userId === auth.currentUser.uid){
-            setIsDeleting(true)
-
+            deleteDoc(docRef).then(() => {
+                console.log("Comment successfully deleted!");
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+            toast.success("comment deleted");
         } else{
-            alert("you can only delete comments you have posted yourself")
+            toast.error("you can only delete comments you wrote yourself");
         }
-    }
-*/
+       
 
+
+    }
 
 
 
@@ -113,10 +120,19 @@ const [newReply, setNewReply] = useState("");
         setIsReplying(false);
     }
 
+    const stripHtml = (htmlString) => {
+        const div = document.createElement('div');
+        div.innerHTML = htmlString;
+        return div.textContent || div.innerText || '';
+    }
+
     let cleanComment = DOMPurify.sanitize(data.comment);
+    let cleanOriginComment = DOMPurify.sanitize(data.origincomment);
+
 
     return(
         <div  >
+            <ToastContainer />
             {isEditing ? (
                 <div>
                 <div >
@@ -157,12 +173,13 @@ const [newReply, setNewReply] = useState("");
                         <span className="username">{data.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {data.reply && <p className="replying">Reply @{data.originuser} {data.origincomment.slice(0, 30)} ...</p>}
+                    {data.reply && <p className="replying">Reply @{data.originuser}: {stripHtml(cleanOriginComment.slice(0, 30))} ...</p>}
                     <div>
                         <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment }}/>
                         <div className="comment-footer">
                             <button onClick={handleEdit} className="archive">edit</button>
                             <button onClick={handleReply} className="archive">reply</button>
+                            <button onClick={handleDelete} className="archive">del</button>
                             {/*<button onClick={handleCheckDelete} className="archive">delete</button>*/}
                         </div>
                     </div>

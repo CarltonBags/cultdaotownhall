@@ -31,6 +31,11 @@ function SubmitPitchComment ({pitchData, triggerUpdate}) {
             alert('You need to be logged in to post a comment.');
             return;
         }
+
+        if (!comment.length > 0){
+            alert("Comments cannot be empty");
+            return;
+        }
         const date = new Date();
         const dateString = date.toISOString();
 
@@ -72,6 +77,8 @@ function SubmitPitchComment ({pitchData, triggerUpdate}) {
             window.removeEventListener('resize', handleResize);
         }
     }, []);
+
+    
     return (
         <div>
              <form onSubmit={postComment}>
@@ -98,9 +105,9 @@ function SubmitPitchComment ({pitchData, triggerUpdate}) {
                     />
                 }
                 {!isMobile && 
-                    <p>
+                    <div className="send">
                         <input className="btn btn-danger" type="submit" value="Submit"/>
-                    </p>
+                    </div>
                 }
             </form>
         </div>

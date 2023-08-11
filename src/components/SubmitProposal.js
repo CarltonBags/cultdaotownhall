@@ -17,6 +17,13 @@ function SubmitProposal () {
 
     const [title, setTitle] = useState ("");
     const [description, setDescription] = useState("");
+    const [authors, setAuthors] = useState("");
+    const [category, setCategory] = useState("");
+
+
+    const handleCategoryChange = (event) => {
+        setCategory(event.target.value);
+    }
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -25,12 +32,20 @@ function SubmitProposal () {
     const handleDescriptionChange = (value) => {
         setDescription(value);
     }
+    const handleAuthorChange = (event) => {
+        setAuthors(event.target.value);
+    }
 
     const postData = async (event) => {
         event.preventDefault();
 
         if (!auth.currentUser) {
             alert('You need to be logged in to post a proposal.');
+            return;
+        }
+
+        if (!title > 0 || !description > 0 || !authors > 0) {
+            alert("all input fields must contain an input");
             return;
         }
 
@@ -50,6 +65,8 @@ function SubmitProposal () {
         await addDoc(collection(db, "proposals"), {
             title: title,
             description: description,
+            authors: authors,
+            category: category,
             id: highestId + 1,
             time: dateString,
             user: auth.currentUser.displayName,
@@ -59,7 +76,7 @@ function SubmitProposal () {
                     
         setTitle("");
         setDescription("");
-
+        setAuthors("");
         navigate("/proposalList");
     }
 
@@ -67,6 +84,15 @@ function SubmitProposal () {
         <div className="pr-container">
             <h1 className="proposal-headline">Submit Motion</h1>
             <form onSubmit={postData}>
+             <div className="label-container">
+                    <label className="sub-head">- Category -</label>
+                    <select className="pr-input" value={category} onChange={handleCategoryChange}>
+                        <option value="">Select a category</option>
+                        <option value="Governance">Governance</option>
+                        <option value="ModulusZK">ModulusZK</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
                 <div className="label-container">
                     <label className="sub-head">- Title -</label>
                     <input
@@ -77,7 +103,7 @@ function SubmitProposal () {
                         value={title}
                     />
                 </div>
-                <div className="label-container col-md-6">
+                <div className="label-container">
                     <label className="sub-head">- Description -</label>
                     <div className="quill-wrapper">
                     <ReactQuill
@@ -88,6 +114,16 @@ function SubmitProposal () {
                         onChange={handleDescriptionChange}
                     />
                     </div>
+                </div>
+                <div className="label-container">
+                    <label className="sub-head">- Authors -</label>
+                    <input
+                        className="pr-input"
+                        type="text"
+                        name="Authors"
+                        onChange={handleAuthorChange}
+                        value={authors}
+                    />
                 </div>
                 <input className="btn btn-danger" type="submit" value="Submit"/>
             </form>

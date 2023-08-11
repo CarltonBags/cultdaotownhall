@@ -9,9 +9,6 @@ import { faDroplet } from '@fortawesome/free-solid-svg-icons';
 
 
 
-
-
-
 function SubmitComment ({proposalData, commentUpdate}) {
 
     const auth = getAuth();
@@ -30,6 +27,11 @@ function SubmitComment ({proposalData, commentUpdate}) {
         
         if (!auth.currentUser) {
             alert('You need to be logged in to post a comment.');
+            return;
+        }
+
+        if (!comment.length > 0){
+            alert("Comments cannot be empty");
             return;
         }
         const date = new Date();

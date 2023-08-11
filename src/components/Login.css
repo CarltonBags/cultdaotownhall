@@ -20,7 +20,6 @@
     width: 60%;
     margin-bottom: 0px;
     margin:auto;
-    margin: auto;  /* This will center the container itself */
     justify-content: center; /* This will center its children vertically */
     align-items: center; 
     
@@ -47,8 +46,10 @@
 }
 
 .ggl-btn {
-    width:150px;
-    margin-top:10px
+    width:40%;
+    margin-top:10px;
+    max-width:100px;
+    min-width: 60px;
 }
 
 .login-form{

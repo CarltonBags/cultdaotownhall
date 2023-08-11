@@ -13,6 +13,7 @@
 .signup-button {
     margin-right: 5px;
     font-family:Benguiat;
+    
 }
 
 .logout-button {
@@ -22,7 +23,7 @@
 
 .dune{
     font-family: Benguiat;
-    color: whitesmoke;
+    color: rgb(148, 127, 25);
     text-decoration: none;
 }
 
@@ -48,3 +49,30 @@
   .navbar-image{
     padding:5px;
   }
+
+  @media (max-width: 991px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-end;  /* Align items to the right */
+        margin-left: auto;      /* Push the navbar to the right */
+    }
+    .navbar-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+/* For wide screens */
+@media (min-width: 992px) { /* Adjust this value based on when you want the change to happen */
+  .navbar .navbar-center-group {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .navbar .navbar-collapse {
+      display: flex !important; /* Override the collapse behavior for wider screens */
+      justify-content: flex-end;
+  }
+}

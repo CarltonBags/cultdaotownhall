@@ -1,7 +1,7 @@
 import { query, doc, updateDoc, addDoc, getDocs, getDoc, collection, where } from "firebase/firestore";
 import React, {useState, useEffect} from "react";
 import { getAuth } from "firebase/auth";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {db} from "./firebaseConfig";
 import "./ProposalPage.css";
 import SubmitComment from "./SubmitComment";
@@ -32,6 +32,7 @@ function ProposalPage () {
     const [debouncedValue, setDebouncedValue] = useState('');
     let [proposalUpdate, setProposalUpdate] = useState(false);
 
+ 
 
     const debouncedSave = debounce((nextValue) => {
         setDebouncedValue(nextValue);
@@ -100,7 +101,7 @@ function ProposalPage () {
 
 
 
-    const {title, description} = proposalData;
+    const {title, description, authors} = proposalData;
 
     const handleAmend = () => {
         setAmending(true);
@@ -183,12 +184,14 @@ function ProposalPage () {
     return <div className="revoloading">Revoloading...</div>;
     }
 
+
     return (
         <div className="pro-container">
             <div>
-            <div className="pr-sub-container">
+            <div className="pr-sub-container col-lg-8">
                 <h1 className="headline">- CIM-{proposalData.id} -</h1>
                 <h1 className="sub-headline">{title}</h1>
+                <h2 className="author-headline">by: {authors}</h2>
                 {editProposal ? 
                     (<div>
                         <textarea value={proposalDes} onChange={(e) => {setProposalDes(e.target.value)}} className="proposal-edit"/>

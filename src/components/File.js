@@ -50,7 +50,7 @@ if (!file) {
 
     return (
         <div>
-            <h2 className="file-header">File</h2>
+            <h2 className="file-header">Info</h2>
         {Array.isArray(file) && file.map((commentData) => (
           <div key={commentData.id}>
             <Comment commentData={commentData} />

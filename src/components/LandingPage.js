@@ -19,7 +19,7 @@ function LandingPage () {
         </div>
         <div className="cip">
             <div className="row justify-content-around">
-                <div class="card col-xs-10 col-sm-10 col-md-5 card-style" >
+                <div class="card col-xs-10 col-sm-10 col-md-5 col-lg-4 card-style" >
                     <h5 className="card-title cip-header">Pitch Table</h5>
                      <img className="card-img-top" src="/pitch1.png" alt="Card image cap" />
                 <div className="card-body body-container">
@@ -30,11 +30,11 @@ function LandingPage () {
                         <Link to="/submitPitch" className="btn btn-danger submit-btn">Pitch</Link>
                     </div>
                     <div className="about">
-                        <Link className="about" to="/proposalList/about">about</Link>
+                        <Link className="about" to="/proposalList/aboutpitch">about</Link>
                     </div>
                 </div>
                 </div>
-                <div className="card col-xs-10 col-sm-10 col-md-5 card-style" >
+                <div className="card col-xs-10 col-sm-10 col-md-5 col-lg-4 card-style" >
                     <h5 className="card-title cip-header">Improvement Motions</h5>
                     <img className="card-img-top" src="/brand1.png" alt="Card image cap" />
                     <div className="card-body">
@@ -45,7 +45,7 @@ function LandingPage () {
                             <Link to="/submit" className="btn btn-danger submit-btn">Submit</Link>
                         </div>
                         <div className="about">
-                            <Link className="about" to="/proposalList/aboutpitch">about</Link>
+                            <Link className="about" to="/proposalList/about">about</Link>
                         </div>
                     </div>
                 </div>

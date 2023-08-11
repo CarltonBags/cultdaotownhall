@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import "./Comment.css";
 import { getAuth } from "firebase/auth";
 import "./PitchComment.css";
-import { doc, addDoc, getDocs, collection, updateDoc } from "firebase/firestore";
+import { doc, addDoc, getDocs, collection, deleteDoc, updateDoc } from "firebase/firestore";
 import {db} from "./firebaseConfig";
 import DOMPurify from "dompurify";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 
 function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
-    console.log(commentData);
-    console.log(pitchInfo);
+  
     
 
-    const auth=getAuth();
+    const auth = getAuth();
     const [isEditing, setIsEditing] = useState(false);
     const [newComment, setNewComment] = useState('');
     const [isReply, setIsReplying] = useState(false)
@@ -24,6 +25,23 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
     const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}, ${date.getHours()}:${formattedMinutes}`;
 
     
+
+    const handleDelete = () => {
+        if (auth.currentUser.uid === commentData.userId){
+            const docRef = doc(db, 'pitchcomments', commentData.docId);
+
+            deleteDoc(docRef).then(() => {
+                console.log("Comment successfully deleted!");
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+            toast.success("comment deleted")
+        } else{
+            toast.error("you can only delete comments you wrote yourself")
+        }
+        
+
+    }
 
     const handleArchive = async (event) => {
         event.preventDefault();
@@ -132,6 +150,7 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
 
     return (
         <div  >
+            <ToastContainer />
             {isEditing ? (
                 <div>
                 <div >
@@ -173,13 +192,14 @@ function PitchComment ({commentData, triggerUpdate, pitchInfo}) {
                         <span className="username">{commentData.user}</span> 
                         <span className="date">{formattedDate}</span>
                     </div>
-                    {commentData.reply && <p className="replying">Reply @{cleanUser} {cleanOriginComment.slice(0, 30)}</p>}
+                    {commentData.reply && <p className="replying">Reply @{cleanUser}: {cleanOriginComment.slice(0, 30)}</p>}
                     <div>
                         <div className="text" dangerouslySetInnerHTML={{ __html: cleanComment }}/>
                         <div className="comment-footer">
                             <button onClick={handleArchive} className="archive">archive</button>
                             <button onClick={handleEdit} className="archive">edit</button>
                             <button onClick={handleReply} className="archive">reply</button>
+                            <button onClick={handleDelete} className="archive">del</button>
                         </div>
                     </div>
                 </div>

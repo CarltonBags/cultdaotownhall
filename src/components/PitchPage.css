@@ -11,15 +11,17 @@
     margin-bottom:50px;
     margin-top:30px;
     border-radius:5px;
+    max-width: 1000px;
 }
 
-.headline {
+.pitch-headline {
     font-size: 2rem;
     font-family: Benguiat;
     padding-top:10px;
     margin-bottom:0px;
     background-color:black;
     color:whitesmoke;
+    text-align: Center;
 }
 
 .project-description {
@@ -44,6 +46,7 @@
     padding-top:30px;
     padding-bottom:30px;
     color:whitesmoke;
+    text-align: Center;
 
 }
 
@@ -57,29 +60,33 @@
 }
 
 .file-icon{
-    width:6%;
-    min-width:60px;
-    align-items: center;
     margin:auto;
     margin-bottom:20px;
     margin-top:20px;
-    color:black;
+    text-align:center;
 }
 
 .vote {
     font-family:Special Elite;
     padding:5px;
+    margin:auto;
 }
 
 .down{
     margin:10px;
     margin-bottom: 30px;
-}
+    text-align: Center;}
 
 .vote-header {
     font-family: Special Elite;
-        color: whitesmoke;
-
+    color: whitesmoke;
+    text-align: Center;
 }
 
+.discussion-headline{
+    text-align: center;
+}
 
+.vote-arrows{
+    text-align: center;
+}

@@ -185,7 +185,7 @@ function SubmitPitch() {
             - Do you have a Pitch Deck? Please share the URL -
           </label>
           <input
-          className="pr-input"
+            className="pr-input"
             type="text"
             name="deck"
             onChange={handleDeckChange}

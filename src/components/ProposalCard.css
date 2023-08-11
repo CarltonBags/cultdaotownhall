@@ -33,3 +33,30 @@
 .proposal-submitter-container{
     margin-top: auto; /* Add this line to push the submitter to the bottom */
 }
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    background-color: #007bff; /* Change this color to whatever you desire */
+    color: white;
+}
+
+/* If you want to color-code categories, you can add additional styles */
+.badge-governance {
+    background-color: #007bff;
+}
+
+.badge-moduluszk {
+    background-color: #28a745;
+}
+
+.badge-other {
+    background-color: #ffc107;
+}
