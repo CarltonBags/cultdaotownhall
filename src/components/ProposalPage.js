@@ -1,7 +1,7 @@
 import { query, doc, updateDoc, addDoc, getDocs, getDoc, collection, where } from "firebase/firestore";
 import React, {useState, useEffect} from "react";
 import { getAuth } from "firebase/auth";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {db} from "./firebaseConfig";
 import "./ProposalPage.css";
 import SubmitComment from "./SubmitComment";
