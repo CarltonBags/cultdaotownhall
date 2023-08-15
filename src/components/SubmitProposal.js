@@ -90,6 +90,7 @@ function SubmitProposal () {
                         <option value="">Select a category</option>
                         <option value="Governance">Governance</option>
                         <option value="ModulusZK">ModulusZK</option>
+                        <option value="Letter">Open Letter</option>
                         <option value="Other">Other</option>
                     </select>
                     </div>

@@ -18,7 +18,7 @@ function About () {
           Voting on the adoption of a CIM is a <strong>token-gated process</strong>, meaning you need to have <strong>$dCULT</strong> in your wallet to take part in the snapshot vote.
         </p>
         <h2>Process</h2>
-        <p>Once a CIM has been submitted by a user, the motion can be openly discussed by community members in the discussion section below each CIM. Furthermore, every registered user can request an amendment to the motion presented, which can be approved or denied by the publisher of the CIM. There is no fixed timeframe for the discussion of the CIM. Once it transpires in the discussion if the modification to Cult DAO might be beneficial or detrimental, the CIM can be put up to a snapshot vote (if required) on https://snapshot.org/#/cultdaoart.eth.</p>
+        <p>Once a CIM has been submitted by a user, the motion can be openly discussed by community members in the discussion section below each CIM. Furthermore, every registered user can request an amendment to the motion presented, which can be approved or denied by the publisher of the CIM. There is no fixed timeframe for the discussion of the CIM. Once it transpires in the discussion if the modification to Cult DAO might be beneficial or detrimental, the CIM can be put up to a snapshot vote (if required) on https://snapshot.org/#/cult-dao.eth.</p>
         <p>Every CIM should at least contain the following:</p>
         <ul className="dotted-list">
           <li><strong>Motivation</strong> (What is wrong?)</li>

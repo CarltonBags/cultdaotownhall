@@ -223,6 +223,7 @@ function ProposalPage () {
                             </div>
                 </div>) : null}
             </div>
+            {/*<Snapshot proposalData={proposalData}/>*/}
                 { !amendmentData.length > 0 ? (null) : (<div> 
                 <div>
                  <h1 className="discussion-headline">- Amendment Requests -</h1>
