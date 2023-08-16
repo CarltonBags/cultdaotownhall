@@ -28,7 +28,7 @@ const [newReply, setNewReply] = useState("");
 
 
     const handleDelete = () => {
-        if (auth.currentUser.uid === commentData.userId){
+        if (auth.currentUser && auth.currentUser.uid === commentData.userId) {
             const docRef = doc(db, 'comments', commentData.docId);
 
             deleteDoc(docRef).then(() => {
@@ -51,7 +51,7 @@ const [newReply, setNewReply] = useState("");
     const handleEdit = () => {
         console.log("handleEdit is rendering");
 
-        if(commentData.userId === auth.currentUser.uid){
+        if (auth.currentUser && auth.currentUser.uid === commentData.userId) {
             const div = document.createElement('div');
             div.innerHTML = data.comment;
             const text = div.textContent || div.innerText || ''; //this will get you the text without html tags

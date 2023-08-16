@@ -204,8 +204,8 @@ function ProposalPage () {
                      <div className="description" dangerouslySetInnerHTML={{ __html: cleanDescription}} />)}
                      <div className="proposalfooter"> </div>               
                     <div className="proposalfooter">
-                         <a href="https://snapshot.org/#/cultdaoart.eth/create" className="amendment-buttons snap" target="_blank" rel="noopener noreferrer">snap</a>
-                          {proposalData.userId && auth.currentUser.uid ? (<button onClick={handleEditProposal} className="amendment-buttons">edit</button>) : (null)}
+                         <a href="https://snapshot.org/#/cult-dao.eth/create" className="amendment-buttons snap" target="_blank" rel="noopener noreferrer">snap</a>
+                         {auth.currentUser && auth.currentUser.uid && proposalData.userId ? (<button onClick={handleEditProposal} className="amendment-buttons">edit</button>) : (null)}
                      { !amending ? 
                      (
                          <button className="amendment-buttons" onClick={handleAmend}>amend</button>): (null)}
